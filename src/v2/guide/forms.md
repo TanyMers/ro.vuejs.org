@@ -16,13 +16,13 @@ Puteți utiliza directiva `v-model` pentru a crea legături de date bidirecțion
 
 ``` html
 <input v-model="message" placeholder="edit me">
-<p>Message is: {{ message }}</p>
+<p>Mesajul este: {{ message }}</p>
 ```
 
 {% raw %}
 <div id="example-1" class="demo">
-  <input v-model="message" placeholder="edit me">
-  <p>Message is: {{ message }}</p>
+  <input v-model="message" placeholder="editează-mă">
+  <p>Mesajul este: {{ message }}</p>
 </div>
 <script>
 new Vue({
