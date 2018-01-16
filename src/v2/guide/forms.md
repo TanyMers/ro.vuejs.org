@@ -4,13 +4,13 @@ type: guide
 order: 10
 ---
 
-## Basic Usage
+## Utilizare de Bază
 
-You can use the `v-model` directive to create two-way data bindings on form input and textarea elements. It automatically picks the correct way to update the element based on the input type. Although a bit magical, `v-model` is essentially syntax sugar for updating data on user input events, plus special care for some edge cases.
+Puteți utiliza directiva `v-model` pentru a crea legături de date bidirecționale pe elementele de intrare și textarea formularului. Se alege automat modul corect de actualizare a elementului pe baza tipului de intrare. Deși un pic neobișnuit, `v-model` este în esență sintaxa "zahăr" pentru actualizarea datelor privind evenimentele de intrare ale utilizatorului, plus o îngrijire specială pentru unele cazuri de margine.
 
-<p class="tip">`v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the Vue instance data as the source of truth. You should declare the initial value on the JavaScript side, inside the `data` option of your component.</p>
+<p class="tip">`v-model` va ignora atributele inițiale `value`, `checked` sau `selected` găsite pe orice element ale formularului. Acesta va trata întotdeauna datele instanței Vue ca sursa adevarului. Ar trebui să declarați valoarea inițială pe partea JavaScript, în interiorul opțiunii `data` a componentei dvs.</p>
 
-<p class="tip" id="vmodel-ime-tip">For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to cater for these updates as well, use `input` event instead.</p>
+<p class="tip" id="vmodel-ime-tip">Pentru limbile care necesită o [IME](https://en.wikipedia.org/wiki/Input_method) (chineză, japoneză, coreeană etc.), veți observa că `v-model` nu se actualizează în timpul compoziţiei IME. Dacă doriți să satisfaceți și aceste actualizări, utilizați, un eveniment `input`.</p>
 
 ### Text
 
