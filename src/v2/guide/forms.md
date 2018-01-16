@@ -15,7 +15,7 @@ Puteți utiliza directiva `v-model` pentru a crea legături de date bidirecțion
 ### Text
 
 ``` html
-<input v-model="message" placeholder="edit me">
+<input v-model="message" placeholder="editează-mă">
 <p>Mesajul este: {{ message }}</p>
 ```
 
@@ -34,21 +34,21 @@ new Vue({
 </script>
 {% endraw %}
 
-### Multiline text
+### Text Multiline
 
 ``` html
-<span>Multiline message is:</span>
+<span>Mesajul multiline este:</span>
 <p style="white-space: pre-line;">{{ message }}</p>
 <br>
-<textarea v-model="message" placeholder="add multiple lines"></textarea>
+<textarea v-model="message" placeholder="Adaugă linii multiple"></textarea>
 ```
 
 {% raw %}
 <div id="example-textarea" class="demo">
-  <span>Multiline message is:</span>
+  <span>Mesajul multiline este:</span>
   <p style="white-space: pre-line;">{{ message }}</p>
   <br>
-  <textarea v-model="message" placeholder="add multiple lines"></textarea>
+  <textarea v-model="message" placeholder="Adaugă linii multiple"></textarea>
 </div>
 <script>
 new Vue({
@@ -61,7 +61,7 @@ new Vue({
 {% endraw %}
 
 {% raw %}
-<p class="tip">Interpolation on textareas (<code>&lt;textarea&gt;{{text}}&lt;/textarea&gt;</code>) won't work. Use <code>v-model</code> instead.</p>
+<p class="tip">Interpolarea pe textarea (<code>&lt;textarea&gt;{{text}}&lt;/textarea&gt;</code>) nu va funcționa. Utilizați <code>v-model</code>.</p>
 {% endraw %}
 
 ### Checkbox
