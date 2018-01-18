@@ -64,9 +64,9 @@ new Vue({
 <p class="tip">Interpolarea pe textarea (<code>&lt;textarea&gt;{{text}}&lt;/textarea&gt;</code>) nu va funcționa. Utilizați <code>v-model</code>.</p>
 {% endraw %}
 
-### Checkbox
+### Casetă de selectare(Checkbox)
 
-Single checkbox, boolean value:
+Casetă de selectare(Checkbox) unică, valoare booleană:
 
 ``` html
 <input type="checkbox" id="checkbox" v-model="checked">
@@ -87,7 +87,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Multiple checkboxes, bound to the same Array:
+Casete de selectare multiple, legate la aceeași matrice(array):
 
 ``` html
 <div id='example-3'>
@@ -98,7 +98,7 @@ Multiple checkboxes, bound to the same Array:
   <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
   <label for="mike">Mike</label>
   <br>
-  <span>Checked names: {{ checkedNames }}</span>
+  <span>Nume bifate: {{ checkedNames }}</span>
 </div>
 ```
 
@@ -120,7 +120,7 @@ new Vue({
   <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
   <label for="mike">Mike</label>
   <br>
-  <span>Checked names: {{ checkedNames }}</span>
+  <span>Nume bifate: {{ checkedNames }}</span>
 </div>
 <script>
 new Vue({
