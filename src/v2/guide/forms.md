@@ -332,18 +332,18 @@ vm.toggle === vm.b
 vm.pick === vm.a
 ```
 
-### Select Options
+### Opțiuni de Selectare
 
 ``` html
 <select v-model="selected">
-  <!-- inline object literal -->
+  <!-- obiect literal în linie -->
   <option v-bind:value="{ number: 123 }">123</option>
 </select>
 ```
 
 ``` js
-// when selected:
-typeof vm.selected // => 'object'
+// când e selectat:
+typeof vm.selected // => 'obiect'
 vm.selected.number // => 123
 ```
 
