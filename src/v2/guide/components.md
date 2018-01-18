@@ -1,10 +1,10 @@
 ---
-title: Components
+title: Componentele
 type: guide
 order: 11
 ---
 
-## What are Components?
+## Ce sunt Componentele?
 
 Components are one of the most powerful features of Vue. They help you extend basic HTML elements to encapsulate reusable code. At a high level, components are custom elements that Vue's compiler attaches behavior to. In some cases, they may also appear as a native HTML element extended with the special `is` attribute.
 
