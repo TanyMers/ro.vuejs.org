@@ -136,22 +136,22 @@ new Vue({
 
 ``` html
 <input type="radio" id="one" value="One" v-model="picked">
-<label for="one">One</label>
+<label for="one">Unu</label>
 <br>
 <input type="radio" id="two" value="Two" v-model="picked">
-<label for="two">Two</label>
+<label for="two">Doi</label>
 <br>
-<span>Picked: {{ picked }}</span>
+<span>Selecţionat: {{ picked }}</span>
 ```
 {% raw %}
 <div id="example-4" class="demo">
   <input type="radio" id="one" value="One" v-model="picked">
-  <label for="one">One</label>
+  <label for="one">Unu</label>
   <br>
   <input type="radio" id="two" value="Two" v-model="picked">
-  <label for="two">Two</label>
+  <label for="two">Doi</label>
   <br>
-  <span>Picked: {{ picked }}</span>
+  <span>Selecţionat: {{ picked }}</span>
 </div>
 <script>
 new Vue({
