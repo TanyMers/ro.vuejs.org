@@ -347,14 +347,14 @@ typeof vm.selected // => 'obiect'
 vm.selected.number // => 123
 ```
 
-## Modifiers
+## Modificatorii
 
 ### `.lazy`
 
-By default, `v-model` syncs the input with the data after each `input` event (with the exception of IME composition as [stated above](#vmodel-ime-tip)). You can add the `lazy` modifier to instead sync after `change` events:
+În mod implicit, `v-model` sincronizează intrarea cu datele după fiecare eveniment de intrare (cu excepția compoziției IME ca [de mai sus](#vmodel-ime-tip)). Puteți adăuga modificatorul `lazy` în loc să se sincronizeze după evenimentele `change`:
 
 ``` html
-<!-- synced after "change" instead of "input" -->
+<!-- sincronizat după "change" în loc de "input" -->
 <input v-model.lazy="msg" >
 ```
 
