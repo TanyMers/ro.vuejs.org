@@ -370,14 +370,14 @@ Acest lucru este adesea util, deoarece chiar și cu `type="number"`, valoarea el
 
 ### `.trim`
 
-If you want user input to be trimmed automatically, you can add the `trim` modifier to your `v-model` managed inputs:
+Dacă doriți ca intrarea utilizatorului să fie tăiată în mod automat, puteți adăuga modificatorul `trim` la intrările gestionate de `v-model`:
 
 ```html
 <input v-model.trim="msg">
 ```
 
-## `v-model` with Components
+## `v-model` cu Componente
 
-> If you're not yet familiar with Vue's components, you can skip this for now.
+> Dacă nu sunteți încă familiarizat cu componentele Vue, puteți trece peste acest lucru acum.
 
-HTML's built-in input types won't always meet your needs. Fortunately, Vue components allow you to build reusable inputs with completely customized behavior. These inputs even work with `v-model`! To learn more, read about [custom inputs](components.html#Form-Input-Components-using-Custom-Events) in the Components guide.
+Tipurile de intrări integrate ale HTML-ului nu vor răspunde întotdeauna nevoilor dvs. Din fericire, componentele Vue vă permit să construiți intrări reutilizabile cu un comportament complet personalizat. Aceste intrări chiar funcționează cu `v-model`! Pentru a afla mai multe, citiți despre [intrările personalizate](components.html#Form-Input-Components-using-Custom-Events) din ghidul de Componente.
