@@ -284,24 +284,24 @@ new Vue({
 </script>
 {% endraw %}
 
-## Value Bindings
+## Legarea Valorilor
 
-For radio, checkbox and select options, the `v-model` binding values are usually static strings (or booleans for checkbox):
+Pentru radio, caseta de selectare și opțiunile de selectare, valorile obligatorii `v-model` sunt, de obicei, șiruri statice (sau boolean pentru caseta de selectare):
 
 ``` html
-<!-- `picked` is a string "a" when checked -->
+<!-- `picked` este un șir "a" când este bifat -->
 <input type="radio" v-model="picked" value="a">
 
-<!-- `toggle` is either true or false -->
+<!-- `toggle` este fie adevărat, fie fals -->
 <input type="checkbox" v-model="toggle">
 
-<!-- `selected` is a string "abc" when selected -->
+<!-- `selected` este un șir "abc" -->
 <select v-model="selected">
   <option value="abc">ABC</option>
 </select>
 ```
 
-But sometimes we may want to bind the value to a dynamic property on the Vue instance. We can use `v-bind` to achieve that. In addition, using `v-bind` allows us to bind the input value to non-string values.
+Dar uneori am putea dori să legăm valoarea la o proprietate dinamică din instanța Vue. Putem folosi `v-bind` pentru a realiza acest lucru. În plus, `v-bind` ne permite să legăm valoarea de intrare la valori non-string.
 
 ### Checkbox
 
