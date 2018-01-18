@@ -6,7 +6,7 @@ order: 11
 
 ## Ce sunt Componentele?
 
-Components are one of the most powerful features of Vue. They help you extend basic HTML elements to encapsulate reusable code. At a high level, components are custom elements that Vue's compiler attaches behavior to. In some cases, they may also appear as a native HTML element extended with the special `is` attribute.
+Componentele sunt una dintre cele mai puternice caracteristici ale Vue. Ele vă ajută să extindeți elementele de bază HTML pentru a încapsula codul reutilizabil. La un nivel înalt, componentele sunt elemente personalizate pe care compilatorul Vue le atașează comportamentului. În unele cazuri, ele pot apărea, de asemenea, ca un element HTML nativ extins cu atributul special `is`.
 
 ## Using Components
 
