@@ -163,18 +163,18 @@ new Vue({
 </script>
 {% endraw %}
 
-### Select
+### Selectare
 
-Single select:
+Selectare unică:
 
 ``` html
 <select v-model="selected">
-  <option disabled value="">Please select one</option>
+  <option disabled value="">Vă rugăm selectați o obțiune</option>
   <option>A</option>
   <option>B</option>
   <option>C</option>
 </select>
-<span>Selected: {{ selected }}</span>
+<span>Selectat: {{ selected }}</span>
 ```
 ``` js
 new Vue({
@@ -187,12 +187,12 @@ new Vue({
 {% raw %}
 <div id="example-5" class="demo">
   <select v-model="selected">
-    <option disabled value="">Please select one</option>
+    <option disabled value="">Vă rugăm selectați o obțiune</option>
     <option>A</option>
     <option>B</option>
     <option>C</option>
   </select>
-  <span>Selected: {{ selected }}</span>
+  <span>Selectat: {{ selected }}</span>
 </div>
 <script>
 new Vue({
@@ -204,9 +204,9 @@ new Vue({
 </script>
 {% endraw %}
 
-<p class="tip">If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.</p>
+<p class="tip">Dacă valoarea inițială a expresiei `v-model` nu se potrivește cu niciuna dintre opțiuni, elementul <select> va fi afișat într-o stare "neselectată". În iOS, acest lucru va face ca utilizatorul să nu poată selecta primul element, deoarece iOS nu declanșează un eveniment de schimbare în acest caz. Prin urmare, este recomandat să furnizați o opțiune dezactivată cu o valoare goală, așa cum este demonstrat în exemplul de mai sus.</p>
 
-Multiple select (bound to Array):
+Selectare multiplă (legat de Array):
 
 ``` html
 <select v-model="selected" multiple>
@@ -215,7 +215,7 @@ Multiple select (bound to Array):
   <option>C</option>
 </select>
 <br>
-<span>Selected: {{ selected }}</span>
+<span>Selectat: {{ selected }}</span>
 ```
 {% raw %}
 <div id="example-6" class="demo">
@@ -225,7 +225,7 @@ Multiple select (bound to Array):
     <option>C</option>
   </select>
   <br>
-  <span>Selected: {{ selected }}</span>
+  <span>Selectat: {{ selected }}</span>
 </div>
 <script>
 new Vue({
@@ -237,7 +237,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Dynamic options rendered with `v-for`:
+Opțiuni dinamice rendate cu `v-for`:
 
 ``` html
 <select v-model="selected">
@@ -245,7 +245,7 @@ Dynamic options rendered with `v-for`:
     {{ option.text }}
   </option>
 </select>
-<span>Selected: {{ selected }}</span>
+<span>Selectat: {{ selected }}</span>
 ```
 ``` js
 new Vue({
@@ -253,9 +253,9 @@ new Vue({
   data: {
     selected: 'A',
     options: [
-      { text: 'One', value: 'A' },
-      { text: 'Two', value: 'B' },
-      { text: 'Three', value: 'C' }
+      { text: 'Unu', value: 'A' },
+      { text: 'Doi', value: 'B' },
+      { text: 'Trei', value: 'C' }
     ]
   }
 })
@@ -267,7 +267,7 @@ new Vue({
       {{ option.text }}
     </option>
   </select>
-  <span>Selected: {{ selected }}</span>
+  <span>Selectat: {{ selected }}</span>
 </div>
 <script>
 new Vue({
@@ -275,9 +275,9 @@ new Vue({
   data: {
     selected: 'A',
     options: [
-      { text: 'One', value: 'A' },
-      { text: 'Two', value: 'B' },
-      { text: 'Three', value: 'C' }
+      { text: 'Unu', value: 'A' },
+      { text: 'Doi', value: 'B' },
+      { text: 'Trei', value: 'C' }
     ]
   }
 })
