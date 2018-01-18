@@ -360,13 +360,13 @@ vm.selected.number // => 123
 
 ### `.number`
 
-If you want user input to be automatically typecast as a number, you can add the `number` modifier to your `v-model` managed inputs:
+Dacă doriți ca intrarea utilizatorului să fie difuzată automat ca număr, puteți adăuga modificatorul `number` la intrările gestionate de `v-model`:
 
 ``` html
 <input v-model.number="age" type="number">
 ```
 
-This is often useful, because even with `type="number"`, the value of HTML input elements always returns a string.
+Acest lucru este adesea util, deoarece chiar și cu `type="number"`, valoarea elementelor de intrare HTML întoarce întotdeauna un șir.
 
 ### `.trim`
 
