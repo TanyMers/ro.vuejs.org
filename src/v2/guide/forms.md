@@ -315,9 +315,9 @@ Dar uneori am putea dori să legăm valoarea la o proprietate dinamică din inst
 ```
 
 ``` js
-// when checked:
+// când e bifat:
 vm.toggle === vm.a
-// when unchecked:
+// când nu e bifat:
 vm.toggle === vm.b
 ```
 
@@ -328,7 +328,7 @@ vm.toggle === vm.b
 ```
 
 ``` js
-// when checked:
+// când e bifat:
 vm.pick === vm.a
 ```
 
