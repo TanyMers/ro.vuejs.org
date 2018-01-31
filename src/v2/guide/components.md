@@ -8,30 +8,30 @@ order: 11
 
 Componentele sunt una dintre cele mai puternice caracteristici ale Vue. Ele vă ajută să extindeți elementele de bază HTML pentru a încapsula codul reutilizabil. La un nivel înalt, componentele sunt elemente personalizate pe care compilatorul Vue le atașează comportamentului. În unele cazuri, ele pot apărea, de asemenea, ca un element HTML nativ extins cu atributul special `is`.
 
-## Using Components
+## Utilizarea Componentelor
 
-### Global Registration
+### Înregistrare Globală
 
-We've learned in the previous sections that we can create a new Vue instance with:
+În secțiunile anterioare am învățat că putem crea o nouă instanță Vue cu:
 
 ``` js
 new Vue({
   el: '#some-element',
-  // options
+  // opțiuni
 })
 ```
 
-To register a global component, you can use `Vue.component(tagName, options)`. For example:
+Pentru a înregistra o componentă globală, puteți folosi `Vue.component(tagName, options)`. De exemplu:
 
 ``` js
 Vue.component('my-component', {
-  // options
+  // opțiuni
 })
 ```
 
-<p class="tip">Note that Vue does not enforce the [W3C rules](https://www.w3.org/TR/custom-elements/#concepts) for custom tag names (all-lowercase, must contain a hyphen) though following this convention is considered good practice.</p>
+<p class="tip">Rețineți că Vue nu aplică [regulile W3C](https://www.w3.org/TR/custom-elements/#concepts) pentru numele de etichete personalizate (cu litere mici, trebuie să conțină o cratimă), deși urmarea acestor convenții sunt considerate practici bune.</p>
 
-Once registered, a component can be used in an instance's template as a custom element, `<my-component></my-component>`. Make sure the component is registered **before** you instantiate the root Vue instance. Here's the full example:
+Odată înregistrat, o componentă poate fi utilizată într-un șablon al unui exemplu ca element personalizat, `<my-component></ my-component>`. Asigurați-vă că componenta este înregistrată **înainte de** rădăcina instanței Vue. Mai jos găsiți exemplul complet:
 
 ``` html
 <div id="example">
@@ -40,22 +40,22 @@ Once registered, a component can be used in an instance's template as a custom e
 ```
 
 ``` js
-// register
+// înregistrează
 Vue.component('my-component', {
-  template: '<div>A custom component!</div>'
+  template: '<div>O componentă personalizată!</div>'
 })
 
-// create a root instance
+// creați o instanță rădăcină
 new Vue({
   el: '#example'
 })
 ```
 
-Which will render:
+Ceea ce va face:
 
 ``` html
 <div id="example">
-  <div>A custom component!</div>
+  <div>O componentă personalizată!</div>
 </div>
 ```
 
@@ -65,37 +65,37 @@ Which will render:
 </div>
 <script>
 Vue.component('my-component', {
-  template: '<div>A custom component!</div>'
+  template: '<div>O componentă personalizată!</div>'
 })
 new Vue({ el: '#example' })
 </script>
 {% endraw %}
 
-### Local Registration
+### Înregistrare Locală
 
-You don't have to register every component globally. You can make a component available only in the scope of another instance/component by registering it with the `components` instance option:
+Nu trebuie să înregistrați fiecare componentă la nivel global. Puteți face o componentă disponibilă numai în scopul unei alte instanțe/componente, înregistrând-o cu opțiunea instanțelor `components`:
 
 ``` js
 var Child = {
-  template: '<div>A custom component!</div>'
+  template: '<div>O componentă personalizată!</div>'
 }
 
 new Vue({
   // ...
   components: {
-    // <my-component> will only be available in parent's template
+    // <my-component> va fi disponibilă numai în șablonul părintelui
     'my-component': Child
   }
 })
 ```
 
-The same encapsulation applies for other registerable Vue features, such as directives.
+Aceeași încapsulare se aplică și altor caracteristici Vue registerabile, cum ar fi directivele.
 
-### DOM Template Parsing Caveats
+### Caracteristicile Parsării Șablonului DOM
 
-When using the DOM as your template (e.g. using the `el` option to mount an element with existing content), you will be subject to some restrictions that are inherent to how HTML works, because Vue can only retrieve the template content **after** the browser has parsed and normalized it. Most notably, some elements such as `<ul>`, `<ol>`, `<table>` and `<select>` have restrictions on what elements can appear inside them, and some elements such as `<option>` can only appear inside certain other elements.
+Când utilizați DOM-ul ca șablon (de exemplu, folosiți opțiunea `el` pentru a monta un element cu conținut existent), veți fi supuși anumitor restricții inerente modului în care HTML funcționează, deoarece Vue poate prelua numai conținutul șablonului **după ce** browser-ul a analizat și a normalizat-o. În special, unele elemente precum `<ul>`, `<ol>`, `<table>` și `<select>` au restricții asupra elementelor care pot apărea în ele și unele elemente precum `<option>` pot apărea numai în anumite elemente.
 
-This will lead to issues when using custom components with elements that have such restrictions, for example:
+Acest lucru va duce la probleme atunci când se utilizează componente personalizate cu elemente care au astfel de restricții, de exemplu:
 
 ``` html
 <table>
@@ -103,7 +103,7 @@ This will lead to issues when using custom components with elements that have su
 </table>
 ```
 
-The custom component `<my-row>` will be hoisted out as invalid content, thus causing errors in the eventual rendered output. A workaround is to use the `is` special attribute:
+Componenta personalizată `<my-row>` va fi ridicată ca conținut nevalid, provocând astfel erori în eventuala ieșire randată. O soluție este folosirea atributului special `is`:
 
 ``` html
 <table>
@@ -111,28 +111,28 @@ The custom component `<my-row>` will be hoisted out as invalid content, thus cau
 </table>
 ```
 
-**It should be noted that these limitations do not apply if you are using string templates from one of the following sources**:
+**Trebuie de remarcat faptul că aceste limitări nu se aplică dacă utilizați șabloane de șir dintr-una din următoarele surse**:
 
 - `<script type="text/x-template">`
 - JavaScript inline template strings
 - `.vue` components
 
-Therefore, prefer using string templates whenever possible.
+Prin urmare, preferați să utilizați șabloane de șir ori de câte ori este posibil.
 
-### `data` Must Be a Function
+### `data` Trebuie să fie o funcție
 
-Most of the options that can be passed into the Vue constructor can be used in a component, with one special case: `data` must be a function. In fact, if you try this:
+Majoritatea opțiunilor care pot fi transmise în constructorul Vue pot fi utilizate într-o componentă, cu un caz special: `data` trebuie să fie o funcție. De fapt, dacă încercați acest lucru:
 
 ``` js
 Vue.component('my-component', {
   template: '<span>{{ message }}</span>',
   data: {
-    message: 'hello'
+    message: 'Salut'
   }
 })
 ```
 
-Then Vue will halt and emit warnings in the console, telling you that `data` must be a function for component instances. It's good to understand why the rules exist though, so let's cheat.
+Apoi Vue va opri și va emite avertismente în consola, spunându-vă că `data` trebuie să fie o funcție pentru instanțele componente. Este bine să înțelegem de ce există normele, deci hai să înțelegem.
 
 ``` html
 <div id="example-2">
@@ -147,9 +147,10 @@ var data = { counter: 0 }
 
 Vue.component('simple-counter', {
   template: '<button v-on:click="counter += 1">{{ counter }}</button>',
-  // data is technically a function, so Vue won't
-  // complain, but we return the same object
-  // reference for each component instance
+   // datele sunt din punct de vedere tehnic o funcție, deci Vue nu se
+   // va plânge, dar va returna același obiect
+   // referință pentru fiecare instanță componentă
+
   data: function () {
     return data
   }
@@ -180,7 +181,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Since all three component instances share the same `data` object, incrementing one counter increments them all! Ouch. Let's fix this by instead returning a fresh data object:
+Întrucât toate cele trei instanțe componente împart același obiect `data`, incrementarea unui contor, incrementează pe toate! Aoleu! Să rezolvăm acest lucru prin returnarea unui obiect de date nou:
 
 ``` js
 data: function () {
@@ -190,7 +191,7 @@ data: function () {
 }
 ```
 
-Now all our counters each have their own internal state:
+Acum, fiecare dintre contoarele noastre au fiecare propria lor stare internă:
 
 {% raw %}
 <div id="example-2-5" class="demo">
@@ -213,11 +214,11 @@ new Vue({
 </script>
 {% endraw %}
 
-### Composing Components
+### Componența componentelor
 
-Components are meant to be used together, most commonly in parent-child relationships: component A may use component B in its own template. They inevitably need to communicate to one another: the parent may need to pass data down to the child, and the child may need to inform the parent of something that happened in the child. However, it is also very important to keep the parent and the child as decoupled as possible via a clearly-defined interface. This ensures each component's code can be written and reasoned about in relative isolation, thus making them more maintainable and potentially easier to reuse.
+Componentele sunt destinate a fi utilizate împreună, cel mai frecvent în relațiile părinte-copil: componenta A poate folosi componenta B în propriul șablon. În mod inevitabil, este necesar să se comunice unii cu alții: părintele poate avea nevoie să transmită date copilului, iar copilul poate avea nevoie să informeze părintele despre ceva care sa întâmplat în copil. Cu toate acestea, este foarte important să păstrați părintele și copilul cât mai detașați pe o interfață clar definită. Acest lucru asigură faptul că fiecare componentă poate fi scrisă și argumentată în mod izolat, făcându-i astfel mai ușor de întreținut și, eventual, mai ușor de reutilizat.
 
-In Vue, the parent-child component relationship can be summarized as **props down, events up**. The parent passes data down to the child via **props**, and the child sends messages to the parent via **events**. Let's see how they work next.
+În Vue, relația părinte-copil componentă poate fi rezumată ca **parametri de intrare-în jos, evenimente-în sus(props down, events up)**. Parintele transmite datele copilului prin **parametri de intrare-props**, iar copilul trimite mesaje părintelui prin **evenimente-events**. Să vedem cum funcționează în continuare.
 
 <p style="text-align: center;">
   <img style="width: 300px;" src="/images/props-events.png" alt="props down, events up">
