@@ -224,35 +224,35 @@ Componentele sunt destinate a fi utilizate împreună, cel mai frecvent în rela
   <img style="width: 300px;" src="/images/props-events.png" alt="props down, events up">
 </p>
 
-## Props
+## Parametri de Intrare
 
-### Passing Data with Props
+### Transmiterea datelor cu Parametrii de Intrare
 
-Every component instance has its own **isolated scope**. This means you cannot (and should not) directly reference parent data in a child component's template. Data can be passed down to child components using **props**.
+Fiecare instanță a componentei are propriul ei **domeniu de aplicare izolat**. Aceasta înseamnă că nu puteți (și nu ar trebui) să trimiteți direct datele părinților într-un șablon al componentei copilului. Datele pot fi transmise către componentele copilului folosind **parametrii de intrare**.
 
-A prop is a custom attribute for passing information from parent components. A child component needs to explicitly declare the props it expects to receive using the [`props` option](../api/#props):
+Parametrul de intrare(Prop) este un atribut personalizat pentru transmiterea informațiilor din componentele părinte. O componentă copil trebuie să declare explicit parametrii de intrare pe care se așteaptă să le primească folosind opțiunea [`parametrii de intrare`](../api/#props):
 
 ``` js
 Vue.component('child', {
-  // declare the props
+  // declararea parametrilor de intrare
   props: ['message'],
-  // like data, the prop can be used inside templates and
-  // is also made available in the vm as this.message
+  // cum ar fi data, parametrul de intrare poate fi folosit în șablonuri și
+   // este, de asemenea, disponibil în vm ca this.message
   template: '<span>{{ message }}</span>'
 })
 ```
 
-Then we can pass a plain string to it like so:
+Putem transmite un șir simplu în componentă, de exemplu:
 
 ``` html
-<child message="hello!"></child>
+<child message="salut!"></child>
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <div id="prop-example-1" class="demo">
-  <child message="hello!"></child>
+  <child message="salut!"></child>
 </div>
 <script>
 new Vue({
@@ -269,26 +269,26 @@ new Vue({
 
 ### camelCase vs. kebab-case
 
-HTML attributes are case-insensitive, so when using non-string templates, camelCased prop names need to use their kebab-case (hyphen-delimited) equivalents:
+Atributele HTML nu sunt insensibile la litere mari, deci atunci când folosesc șabloane non-string, denumirile de propoziții de tip camelCase trebuie să folosească echivalentele lor cu kebab-case (delimitat cu liniuță):
 
 ``` js
 Vue.component('child', {
-  // camelCase in JavaScript
+  // camelCase în JavaScript
   props: ['myMessage'],
   template: '<span>{{ myMessage }}</span>'
 })
 ```
 
 ``` html
-<!-- kebab-case in HTML -->
-<child my-message="hello!"></child>
+<!-- kebab-case în HTML -->
+<child my-message="salut!"></child>
 ```
 
-Again, if you're using string templates, then this limitation does not apply.
+Din nou, dacă utilizați șabloane de șir, această limitare nu se aplică.
 
-### Dynamic Props
+### Parametri de Intrare Dinamici
 
-Similar to binding a normal attribute to an expression, we can also use `v-bind` for dynamically binding props to data on the parent. Whenever the data is updated in the parent, it will also flow down to the child:
+Similar cu legarea unui atribut normal unei expresii, putem folosi, de asemenea, `v-bind` pentru parametrul de intrare dinamic, legat de datele din părinte. Ori de câte ori datele sunt actualizate în părinte, acestea vor apărea și în copil:
 
 ``` html
 <div>
@@ -298,13 +298,13 @@ Similar to binding a normal attribute to an expression, we can also use `v-bind`
 </div>
 ```
 
-You can also use the shorthand syntax for `v-bind`:
+De asemenea, puteți utiliza sintaxa prescurtată pentru `v-bind`:
 
 ``` html
 <child :my-message="parentMsg"></child>
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <div id="demo-2" class="demo">
@@ -316,7 +316,7 @@ Result:
 new Vue({
   el: '#demo-2',
   data: {
-    parentMsg: 'Message from parent'
+    parentMsg: 'Mesaj de la părinte'
   },
   components: {
     child: {
@@ -328,7 +328,7 @@ new Vue({
 </script>
 {% endraw %}
 
-If you want to pass all the properties in an object as props, you can use `v-bind` without an argument (`v-bind` instead of `v-bind:prop-name`). For example, given a `todo` object:
+Dacă doriți să treceți toate proprietățile dintr-un obiect ca elemente de parametru de intrare, puteți utiliza `v-bind` fără argument (`v-bind` în loc de `v-bind:prop-name`). De exemplu, având în vedere un obiect `todo`:
 
 ``` js
 todo: {
@@ -337,13 +337,13 @@ todo: {
 }
 ```
 
-Then:
+Apoi:
 
 ``` html
 <todo-item v-bind="todo"></todo-item>
 ```
 
-Will be equivalent to:
+Va fi echivalent cu:
 
 ``` html
 <todo-item
@@ -352,25 +352,25 @@ Will be equivalent to:
 ></todo-item>
 ```
 
-### Literal vs. Dynamic
+### Literalii vs. Parametrii Dinamici
 
-A common mistake beginners tend to make is attempting to pass down a number using the literal syntax:
+O greșeală obișnuită pe care începătorii o fac când încearcă să treacă un număr folosind sintaxa literală:
 
 ``` html
-<!-- this passes down a plain string "1" -->
+<!-- acest lucru trece printr-un șir simplu "1" -->
 <comp some-prop="1"></comp>
 ```
 
-However, since this is a literal prop, its value is passed down as a plain string `"1"` instead of an actual number. If we want to pass down an actual JavaScript number, we need to use `v-bind` so that its value is evaluated as a JavaScript expression:
+Cu toate acestea, deoarece aceasta este o propoziție literală, valoarea sa este transmisă ca un șir simplu "1" în loc de un număr real. Dacă vrem să transmitem un număr JavaScript real, trebuie să folosim `v-bind` astfel încât valoarea sa să fie evaluată ca expresie JavaScript:
 
 ``` html
-<!-- this passes down an actual number -->
+<!-- acest lucru duce la un număr real -->
 <comp v-bind:some-prop="1"></comp>
 ```
 
-### One-Way Data Flow
+### Flux de Date Unidirecționale
 
-All props form a **one-way-down** binding between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
+Toți parametrii de intrare formează o legătură **unidirecțională-în jos** între proprietatea copilului și cea parentală: atunci când proprietatea părinte actualizează, acesta va curge până la copil, dar nu invers. Acest lucru împiedică componentele copilului să modifice accidental starea părintelui, ceea ce poate face ca fluxul de date al aplicației să fie mai greu de înțeles.
 
 In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should **not** attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console.
 
