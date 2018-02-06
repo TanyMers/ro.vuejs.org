@@ -457,29 +457,29 @@ Vue.component('example', {
 
 Când validarea parametrului de intrare nu reușește, Vue va produce o avertizare în consolă (dacă se utilizează construirea de dezvoltare). Rețineți că parametrii de intrare sunt validați __înainte de__ crearea unei instanțe a componentei, deci în cadrul funcțiilor `default` sau `validator`, proprietățile instanțelor cum ar fi `data`, `computed` sau `methods` nu vor fi disponibile.
 
-## Non-Prop Attributes
+## Atributele Non-Prop
 
-A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined.
+Un atribut non-prop este un atribut care este transmis unei componente, dar nu are definit un parametru de intrare corespunzător.
 
-While explicitly defined props are preferred for passing information to a child component, authors of component libraries can't always foresee the contexts in which their components might be used. That's why components can accept arbitrary attributes, which are added to the component's root element.
+Deși parametrii de intrare definiți explicit sunt preferați pentru transmiterea informațiilor către o componentă copil, autorii bibliotecilor de componente nu pot întotdeauna să prevadă contextele în care pot fi folosite componentele acestora. De aceea, componentele pot accepta atribute arbitrare, care sunt adăugate la elementul rădăcină al componentei.
 
-For example, imagine we're using a 3rd-party `bs-date-input` component with a Bootstrap plugin that requires a `data-3d-date-picker` attribute on the `input`. We can add this attribute to our component instance:
+De exemplu, imaginați-vă că folosim o componentă `bs-date-input` a unui terț cu un plugin Bootstrap care necesită un atribut `data-3d-date-picker` pe intrare. Putem adăuga acest atribut instanței noastre componente:
 
 ``` html
 <bs-date-input data-3d-date-picker="true"></bs-date-input>
 ```
 
-And the `data-3d-date-picker="true"` attribute will automatically be added to the root element of `bs-date-input`.
+Și atributul `data-3d-date-picker="true"` va fi adăugat automat la elementul rădăcină din `bs-date-input`.
 
-### Replacing/Merging with Existing Attributes
+### Înlocuirea/îmbinarea cu atributele existente
 
-Imagine this is the template for `bs-date-input`:
+Imaginați-vă că acesta este șablonul pentru `bs-date-input`:
 
 ``` html
 <input type="date" class="form-control">
 ```
 
-To specify a theme for our date picker plugin, we might need to add a specific class, like this:
+Pentru a specifica o temă pentru pluginul de selectare a datei, este posibil să fie necesar să adăugăm o anumită clasă, după cum urmează:
 
 ``` html
 <bs-date-input
@@ -488,12 +488,12 @@ To specify a theme for our date picker plugin, we might need to add a specific c
 ></bs-date-input>
 ```
 
-In this case, two different values for `class` are defined:
+În acest caz, două valori diferite pentru `class` sunt definite:
 
-- `form-control`, which is set by the component in its template
-- `date-picker-theme-dark`, which is passed to the component by its parent
+- `form-control`, care este setat de componentă în șablonul său
+- `date-picker-theme-dark`, care este transmisă componentei de către părintele său
 
-For most attributes, the value provided to the component will replace the value set by the component. So for example, passing `type="large"` will replace `type="date"` and probably break it! Fortunately, the `class` and `style` attributes are a little smarter, so both values are merged, making the final value: `form-control date-picker-theme-dark`.
+Pentru majoritatea atributelor, valoarea furnizată componentei va înlocui valoarea stabilită de componentă. Deci, de exemplu, trecerea `type = 'large'` va înlocui `type = 'date'` și probabil va întrerupe tot! Din fericire, atributele `class` și `style` sunt puțin mai inteligente, astfel ambele valori sunt îmbinate, făcând valoarea finală: `form-control date-picker-theme-dark`.
 
 ## Custom Events
 
