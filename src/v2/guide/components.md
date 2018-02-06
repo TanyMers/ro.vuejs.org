@@ -372,17 +372,17 @@ Cu toate acestea, deoarece aceasta este o propoziție literală, valoarea sa est
 
 Toți parametrii de intrare formează o legătură **unidirecțională-în jos** între proprietatea copilului și cea parentală: atunci când proprietatea părinte actualizează, acesta va curge până la copil, dar nu invers. Acest lucru împiedică componentele copilului să modifice accidental starea părintelui, ceea ce poate face ca fluxul de date al aplicației să fie mai greu de înțeles.
 
-In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should **not** attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console.
+În plus, de fiecare dată când componenta parentală este actualizată, toate elementele parametrului de intrare din componenta copil vor fi actualizate cu ultima valoare. Acest lucru înseamnă că **nu ar trebui** să încerci să muți un element în interiorul unei componente copil. Dacă o faci, Vue te va avertiza în consola.
 
-There are usually two cases where it's tempting to mutate a prop:
+Există de obicei două cazuri în care ești tentant să muți un parametru de intrare:
 
-1. The prop is used to pass in an initial value; the child component wants to use it as a local data property afterwards.
+1. Parametrul de intrare este folosit pentru a trece într-o valoare inițială; componenta copil vrea să-l folosească ulterior ca proprietate de date locală.
 
-2. The prop is passed in as a raw value that needs to be transformed.
+2. Parametrul de intrare este transmis ca valoare neprelucrată care trebuie transformată.
 
-The proper answer to these use cases are:
+Răspunsul corespunzător la aceste cazuri de utilizare este:
 
-1. Define a local data property that uses the prop's initial value as its initial value:
+1. Definiți o proprietate de date locală care utilizează valoarea inițială a parametrului de intrare ca valoare inițială:
 
   ``` js
   props: ['initialCounter'],
@@ -390,8 +390,7 @@ The proper answer to these use cases are:
     return { counter: this.initialCounter }
   }
   ```
-
-2. Define a computed property that is computed from the prop's value:
+2. Definiți o proprietate computed care este calculată din valoarea parametrului de intrare:
 
   ``` js
   props: ['size'],
@@ -402,40 +401,40 @@ The proper answer to these use cases are:
   }
   ```
 
-<p class="tip">Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child **will** affect parent state.</p>
+<p class="tip">Rețineți că obiectele și matricele(arrays) din JavaScript sunt transmise prin referință, deci dacă parametrul de intrare este o matrice sau un obiect, mutarea obiectului sau a matricei în interiorul copilului **va afecta** starea parentală.</p>
 
-### Prop Validation
+### Validarea Parametrului de intrare
 
-It is possible for a component to specify requirements for the props it is receiving. If a requirement is not met, Vue will emit warnings. This is especially useful when you are authoring a component that is intended to be used by others.
+Este posibil ca o componentă să specifice cerințele pentru parametrii de intrare pe care le primește. Dacă o cerință nu este îndeplinită, Vue va emite avertismente. Acest lucru este util în special atunci când creați o componentă care este destinată utilizării de către alții.
 
-Instead of defining the props as an array of strings, you can use an object with validation requirements:
+În loc de a defini parametrii de intrare ca o serie de șiruri de caractere, puteți utiliza un obiect cu cerințe de validare:
 
 ``` js
 Vue.component('example', {
   props: {
-    // basic type check (`null` means accept any type)
+    // verificarea tipului de bază ("null" înseamnă acceptarea oricărui tip)
     propA: Number,
-    // multiple possible types
+    // mai multe tipuri posibile
     propB: [String, Number],
-    // a required string
+    // un șir necesar
     propC: {
       type: String,
       required: true
     },
-    // a number with default value
+    // un număr cu valoarea implicită
     propD: {
       type: Number,
       default: 100
     },
-    // object/array defaults should be returned from a
-    // factory function
+    // valorile implicite ale unui obiect/array ar trebui să fie returnate 
+    // printr-o funcție
     propE: {
       type: Object,
       default: function () {
         return { message: 'hello' }
       }
     },
-    // custom validator function
+    // funcția validator personalizată
     propF: {
       validator: function (value) {
         return value > 10
@@ -444,8 +443,7 @@ Vue.component('example', {
   }
 })
 ```
-
-The `type` can be one of the following native constructors:
+`type` poate fi unul dintre următorii constructori nativi:
 
 - String
 - Number
@@ -455,9 +453,9 @@ The `type` can be one of the following native constructors:
 - Array
 - Symbol
 
-In addition, `type` can also be a custom constructor function and the assertion will be made with an `instanceof` check.
+În plus, `type` poate fi, de asemenea, o funcție constructor personalizată, iar afirmația va fi făcută cu o verificare `instanceof`.
 
-When prop validation fails, Vue will produce a console warning (if using the development build). Note that props are validated __before__ a component instance is created, so within `default` or `validator` functions, instance properties such as from `data`, `computed`, or `methods` will not be available.
+Când validarea parametrului de intrare nu reușește, Vue va produce o avertizare în consolă (dacă se utilizează construirea de dezvoltare). Rețineți că parametrii de intrare sunt validați __înainte de__ crearea unei instanțe a componentei, deci în cadrul funcțiilor `default` sau `validator`, proprietățile instanțelor cum ar fi `data`, `computed` sau `methods` nu vor fi disponibile.
 
 ## Non-Prop Attributes
 
