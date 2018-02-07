@@ -495,24 +495,24 @@ Pentru a specifica o temă pentru pluginul de selectare a datei, este posibil s�
 
 Pentru majoritatea atributelor, valoarea furnizată componentei va înlocui valoarea stabilită de componentă. Deci, de exemplu, trecerea `type = 'large'` va înlocui `type = 'date'` și probabil va întrerupe tot! Din fericire, atributele `class` și `style` sunt puțin mai inteligente, astfel ambele valori sunt îmbinate, făcând valoarea finală: `form-control date-picker-theme-dark`.
 
-## Custom Events
+## Evenimente Personalizate
 
-We have learned that the parent can pass data down to the child using props, but how do we communicate back to the parent when something happens? This is where Vue's custom event system comes in.
+Am aflat că părintele poate să transmită datele copiilor folosind parametri de intrare, dar cum să comunicăm părintelui atunci când se întâmplă ceva? Aici vine sistemul de evenimente personalizate Vue.
 
-### Using `v-on` with Custom Events
+### Utilizarea `v-on` cu Evenimente Personalizate
 
-Every Vue instance implements an [events interface](../api/#Instance-Methods-Events), which means it can:
+Fiecare instanță Vue implementează o [interfață de evenimente](../api/#Instance-Methods-Events), ceea ce înseamnă că puteți:
 
-- Listen to an event using `$on(eventName)`
-- Trigger an event using `$emit(eventName)`
+- Asculta un eveniment folosind `$on(eventName)`
+- Activa un eveniment folosind `$emit(eventName)`
 
-<p class="tip">Note that Vue's event system is different from the browser's [EventTarget API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget). Though they work similarly, `$on` and `$emit` are __not__ aliases for `addEventListener` and `dispatchEvent`.</p>
+<p class="tip">Rețineți că sistemul de evenimente Vue este diferit de aplicația [EventTarget API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) a browserului. Deși lucrează în mod similar, `$on` și `$emit` __nu__ sunt aliasuri pentru `addEventListener` și `dispatchEvent`.</p>
 
-In addition, a parent component can listen to the events emitted from a child component using `v-on` directly in the template where the child component is used.
+În plus, o componentă părinte poate asculta evenimentele emise de o componentă copil folosind `v-on` direct în șablonul în care este utilizată componenta copil.
 
-<p class="tip">You cannot use `$on` to listen to events emitted by children. You must use `v-on` directly in the template, as in the example below.</p>
+<p class="tip">Nu puteți folosi `$on` pentru a asculta evenimentele emise de copii. Trebuie să utilizați `v-on` direct în șablon, ca în exemplul de mai jos.</p>
 
-Here's an example:
+Aici este un exemplu:
 
 ``` html
 <div id="counter-event-example">
@@ -586,11 +586,11 @@ new Vue({
 </script>
 {% endraw %}
 
-In this example, it's important to note that the child component is still completely decoupled from what happens outside of it. All it does is report information about its own activity, just in case a parent component might care.
+În acest exemplu, este important să rețineți că componenta copil este încă complet decuplată de ceea ce se întâmplă în afara acesteia. Tot ce ea poate face este: să raporteze informații despre propria activitate, doar în cazul în care componentei părinte ar putea să-i pese.
 
-### Binding Native Events to Components
+### Legarea Evenimentelor Native de Componente
 
-There may be times when you want to listen for a native event on the root element of a component. In these cases, you can use the `.native` modifier for `v-on`. For example:
+Pot exista momente când doriți să ascultați un eveniment nativ de pe elementul rădăcină al unei componente. În aceste cazuri, puteți să utilizați modificatorul `.native` pentru `v-on`. De exemplu:
 
 ``` html
 <my-component v-on:click.native="doTheThing"></my-component>
