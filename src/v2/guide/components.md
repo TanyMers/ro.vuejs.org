@@ -596,29 +596,29 @@ Pot exista momente când doriți să ascultați un eveniment nativ de pe element
 <my-component v-on:click.native="doTheThing"></my-component>
 ```
 
-### `.sync` Modifier
+### Modificatorul `.sync`
 
 > 2.3.0+
 
-In some cases we may need "two-way binding" for a prop - in fact, in Vue 1.x this is exactly what the `.sync` modifier provided. When a child component mutates a prop that has `.sync`, the value change will be reflected in the parent. This is convenient, however it leads to maintenance issues in the long run because it breaks the one-way data flow assumption: the code that mutates child props are implicitly affecting parent state.
+În unele cazuri, este posibil să avem nevoie de o "legătură bidirecțională" pentru o propunere - de fapt, în Vue 1.x acesta este exact ceea ce a furnizat modificatorul `.sync`. Când o componentă a copilului mutează un element pe care îl are `.sync`, schimbarea valorii va fi reflectată în părinte. Acest lucru este convenabil, cu toate acestea, duce la probleme de întreținere pe termen lung, deoarece încalcă ipoteza unidirecțională a fluxului de date: codul care mută parametrul de intrare a derivatei afectează implicit statul părinte.
 
-This is why we removed the `.sync` modifier when 2.0 was released. However, we've found that there are indeed cases where it could be useful, especially when shipping reusable components. What we need to change is **making the code in the child that affects parent state more consistent and explicit.**
+Din acest motiv, am eliminat modificatorul `.sync` când 2.0 a fost lansat. Cu toate acestea, am constatat că există într-adevăr cazuri în care ar putea fi util, mai ales atunci când expediați componente reutilizabile. Ceea ce trebuie să schimbăm este **să facem codul copilului care afectează statul părinte mai consistent și explicit.**
 
-In 2.3.0+ we re-introduced the `.sync` modifier for props, but this time it is only syntax sugar that automatically expands into an additional `v-on` listener:
+În 2.3.0+ am reintrodus modificatorul `.sync` pentru parametrul de intrare, dar de această dată este vorba doar de sintaxa zahăr care se extinde automat într-un ascultător suplimentar `v-on`:
 
-The following
+Următoarea
 
 ``` html
 <comp :foo.sync="bar"></comp>
 ```
 
-is expanded into:
+este extinsă în:
 
 ``` html
 <comp :foo="bar" @update:foo="val => bar = val"></comp>
 ```
 
-For the child component to update `foo`'s value, it needs to explicitly emit an event instead of mutating the prop:
+Pentru ca componenta copilului să actualizeze valoarea `foo`, trebuie să emită în mod explicit un eveniment în loc să muteze parametrul de intrare:
 
 ``` js
 this.$emit('update:foo', newValue)
