@@ -782,25 +782,25 @@ Cele de mai sus vor fi echivalente cu:
 
 <p class="tip">Rețineți că trebuie să declarați în mod explicit parametrul de intrare `checked`.</p>
 
-### Non Parent-Child Communication
+### Comunicarea Non Părinte-Copil
 
-Sometimes two components may need to communicate with one-another but they are not parent/child to each other. In simple scenarios, you can use an empty Vue instance as a central event bus:
+Uneori, este posibil ca două componente să fie nevoite să comunice una cu cealaltă, dar nu sunt părinte/copil reciproc. În scenariile simple, puteți utiliza o instanță Vue goală ca o magistrală a evenimentului central:
 
 ``` js
 var bus = new Vue()
 ```
 ``` js
-// in component A's method
+// în metoda din componenta A
 bus.$emit('id-selected', 1)
 ```
 ``` js
-// in component B's created hook
+// în hook-ul creat de componenta B
 bus.$on('id-selected', function (id) {
   // ...
 })
 ```
 
-In more complex cases, you should consider employing a dedicated [state-management pattern](state-management.html).
+În cazuri mai complexe, trebuie să luați în considerare angajarea unui model dedicat [managementului de stat](state-management.html).
 
 ## Content Distribution with Slots
 
