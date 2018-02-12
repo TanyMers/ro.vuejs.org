@@ -624,15 +624,15 @@ Pentru ca componenta copilului să actualizeze valoarea `foo`, trebuie să emit�
 this.$emit('update:foo', newValue)
 ```
 
-### Form Input Components using Custom Events
+### Componentele de intrare a Formularului utilizând Evenimente Personalizate
 
-Custom events can also be used to create custom inputs that work with `v-model`. Remember:
+Evenimente personalizate pot fi, de asemenea, folosite pentru a crea intrări personalizate care funcționează cu `v-model`. Ține minte că:
 
 ``` html
 <input v-model="something">
 ```
 
-is syntactic sugar for:
+este zahăr sintetic pentru:
 
 ``` html
 <input
@@ -640,7 +640,7 @@ is syntactic sugar for:
   v-on:input="something = $event.target.value">
 ```
 
-When used with a component, it instead simplifies to:
+Atunci când este utilizat cu o componentă, se simplifică în loc de:
 
 ``` html
 <custom-input
@@ -649,12 +649,12 @@ When used with a component, it instead simplifies to:
 </custom-input>
 ```
 
-So for a component to work with `v-model`, it should (these can be configured in 2.2.0+):
+Deci, pentru ca o componentă să lucreze cu `v-model`, ar trebui să (acestea pot fi configurate în 2.2.0+):
 
-- accept a `value` prop
-- emit an `input` event with the new value
+- accepte un parametru de intrare `value`
+- emită un eveniment `input` cu o valoare noua
 
-Let's see it in action with a simple currency input:
+Să o vedem în acțiune cu o simplă intrare în valută:
 
 ``` html
 <currency-input v-model="price"></currency-input>
@@ -673,26 +673,26 @@ Vue.component('currency-input', {
   ',
   props: ['value'],
   methods: {
-    // Instead of updating the value directly, this
-    // method is used to format and place constraints
-    // on the input's value
+     // În loc să actualizeze valoarea direct, aceasta
+     // folosește metoda de formare și de plasare a constrângerilor
+     // din valoarea intrării
     updateValue: function (value) {
       var formattedValue = value
-        // Remove whitespace on either side
+        // Ștergeți spațiile albe din ambele părți
         .trim()
-        // Shorten to 2 decimal places
+        // Reduceți până la două litere după virgulă
         .slice(
           0,
           value.indexOf('.') === -1
             ? value.length
             : value.indexOf('.') + 3
         )
-      // If the value was not already normalized,
-      // manually override it to conform
+      // Dacă valoarea nu este normalizată,
+      // o normalizăm manual
       if (formattedValue !== value) {
         this.$refs.input.value = formattedValue
       }
-      // Emit the number value through the input event
+      // Emiteți valoarea numerică prin evenimentul de actualizare
       this.$emit('input', Number(formattedValue))
     }
   }
@@ -740,15 +740,15 @@ new Vue({
 </script>
 {% endraw %}
 
-The implementation above is pretty naive though. For example, users are allowed to enter multiple periods and even letters sometimes - yuck! So for those that want to see a non-trivial example, here's a more robust currency filter:
+Implementarea de mai sus este destul de naivă. De exemplu, utilizatorii au permisiunea de a introduce mai multe perioade și chiar și litere uneori! Astfel, pentru cei care doresc să vadă un exemplu netrivial, iată un filtru valutar mai robust:
 
 <iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/1oqjojjx/embedded/result,html,js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-### Customizing Component `v-model`
+### Personalizarea Componetei `v-model`
 
-> New in 2.2.0+
+> Nou în 2.2.0+
 
-By default, `v-model` on a component uses `value` as the prop and `input` as the event, but some input types such as checkboxes and radio buttons may want to use the `value` prop for a different purpose. Using the `model` option can avoid the conflict in such cases:
+În mod implicit, `v-model` pe o componentă folosește `value` drept parametru de intrare și `input` ca eveniment, dar unele tipuri de intrări, cum ar fi boxele de selectare și butoanele radio, pot să utilizeze parametru de intrare `value` pentru alt scop. Utilizarea opțiunii `model` poate evita conflictul în astfel de cazuri:
 
 ``` js
 Vue.component('my-checkbox', {
@@ -758,7 +758,8 @@ Vue.component('my-checkbox', {
   },
   props: {
     checked: Boolean,
-    // this allows using the `value` prop for a different purpose
+    // acest lucru permite folosirea parametrului de intrare `value` pentru un alt scop
+    
     value: String
   },
   // ...
@@ -769,7 +770,7 @@ Vue.component('my-checkbox', {
 <my-checkbox v-model="foo" value="some value"></my-checkbox>
 ```
 
-The above will be equivalent to:
+Cele de mai sus vor fi echivalente cu:
 
 ``` html
 <my-checkbox
@@ -779,7 +780,7 @@ The above will be equivalent to:
 </my-checkbox>
 ```
 
-<p class="tip">Note that you still have to declare the `checked` prop explicitly.</p>
+<p class="tip">Rețineți că trebuie să declarați în mod explicit parametrul de intrare `checked`.</p>
 
 ### Non Parent-Child Communication
 
