@@ -957,51 +957,52 @@ Rezultatul obținut va fi:
 
 API-ul de distribuire a conținutului este un mecanism foarte util atunci când se proiectează componentele care trebuie să fie compuse împreună.
 
-### Scoped Slots
+### Sloturi cu Domeniu de Vizibilitate Limitat
 
-> New in 2.1.0+
+> Nou în 2.1.0+
 
-A scoped slot is a special type of slot that functions as a reusable template (that can be passed data to) instead of already-rendered-elements.
+Un slot cu domeniu de vizibilitate limitat este un tip special de slot care funcționează ca un șablon reutilizabil (care poate fi transferat de date) în loc de elemente deja redate.
 
-In a child component, pass data into a slot as if you are passing props to a component:
+Într-o componentă copil, transmiteți datele într-un slot ca și cum ați trece elemente de recuzită la o componentă:
 
 ``` html
 <div class="child">
-  <slot text="hello from child"></slot>
+  <slot text="mesajul derivatei"></slot>
 </div>
 ```
 
-In the parent, a `<template>` element with a special attribute `slot-scope` must exist, indicating that it is a template for a scoped slot. The value of `slot-scope` will be used as the name of a temporary variable that holds the props object passed from the child:
+În părinte, trebuie să existe un element `<template>` cu un atribut special `slot-scope`, indicând că acesta este un șablon pentru un slot cu domeniu de vizibilitate limitat. Valoarea `slot-scope` va fi folosită ca nume a unei variabile temporare care deține obiectul de recuzită trecut de la copil:
+
 
 ``` html
 <div class="parent">
   <child>
     <template slot-scope="props">
-      <span>hello from parent</span>
+      <span>mesajul părintelui</span>
       <span>{{ props.text }}</span>
     </template>
   </child>
 </div>
 ```
 
-If we render the above, the output will be:
+Dacă vom face cele de mai sus, rezultatul va fi:
 
 ``` html
 <div class="parent">
   <div class="child">
-    <span>hello from parent</span>
-    <span>hello from child</span>
+    <span>mesajul părintelui</span>
+    <span>mesajul copilului</span>
   </div>
 </div>
 ```
 
-> In 2.5.0+, `slot-scope` is no longer limited to `<template>` and can be used on any element or component.
+> În 2.5.0+, `slot-scope` nu mai este limitat la `<template>` și poate fi utilizat pe orice element sau component.
 
-A more typical use case for scoped slots would be a list component that allows the component consumer to customize how each item in the list should be rendered:
+Un caz de utilizare mai tipic pentru sloturile cu domeniu de vizibilitate limitat ar fi o componentă de listă care permite consumatorului componentei să personalizeze modul în care fiecare element din listă ar trebui să fie redat:
 
 ``` html
 <my-awesome-list :items="items">
-  <!-- scoped slot can be named too -->
+  <!-- slotul cu domeniu de vizibilitate limitat de asemenea poate fi numit -->
   <li
     slot="item"
     slot-scope="props"
@@ -1011,21 +1012,21 @@ A more typical use case for scoped slots would be a list component that allows t
 </my-awesome-list>
 ```
 
-And the template for the list component:
+Și șablonul pentru componenta listei:
 
 ``` html
 <ul>
   <slot name="item"
     v-for="item in items"
     :text="item.text">
-    <!-- fallback content here -->
+    <!-- aici e conținutul rezervă -->
   </slot>
 </ul>
 ```
 
-#### Destructuring
+#### Destructurarea
 
-`scope-slot`'s value is in fact a valid JavaScript expression that can appear in the argument position of a function signature. This means in supported environments (in single-file components or in modern browsers) you can also use ES2015 destructuring in the expression:
+Valoarea `scope-slot` este, de fapt, o expresie JavaScript validă care poate apărea în poziția argumentului unei semnături de funcție. Acest lucru înseamnă că în medii acceptate (în componente cu un singur fișier sau în browsere moderne) puteți utiliza, de asemenea, distrugerea ES2015 în expresia:
 
 ``` html
 <child>
