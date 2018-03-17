@@ -802,9 +802,9 @@ bus.$on('id-selected', function (id) {
 
 În cazuri mai complexe, trebuie să luați în considerare angajarea unui model dedicat [managementului de stat](state-management.html).
 
-## Content Distribution with Slots
+## Distribuirea Conținutului prin Sloturi
 
-When using components, it is often desired to compose them like this:
+Când folosiți componente, ar fi bine adesea să le compuneți astfel:
 
 ``` html
 <app>
@@ -813,13 +813,13 @@ When using components, it is often desired to compose them like this:
 </app>
 ```
 
-There are two things to note here:
+Există două lucruri de reținut aici:
 
-1. The `<app>` component does not know what content it will receive. It is decided by the component using `<app>`.
+1. Componenta `<app>` nu știe ce conținut va primi. Aceasta decide componenta ce folosește `<app>`.
 
-2. The `<app>` component very likely has its own template.
+2. Componenta `<app>` are probabil propriul șablon.
 
-To make the composition work, we need a way to interweave the parent "content" and the component's own template. This is a process called **content distribution** (or "transclusion" if you are familiar with Angular). Vue.js implements a content distribution API that is modeled after the current [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), using the special `<slot>` element to serve as distribution outlets for the original content.
+Pentru a face compoziția să funcționeze, avem nevoie de o modalitate de a interconecta conținutul părintelui și șablonul propriu al componentei. Acesta este un proces denumit **distribuție de conținut** (sau "transluție" dacă sunteți familiarizat cu Angular). Vue.js implementează un API de distribuire a conținutului, care este modelat după versiunea actuală [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), utilizând elementul `<slot>` special pentru a servi drept puncte de distribuție pentru conținutul original.
 
 ### Compilation Scope
 
