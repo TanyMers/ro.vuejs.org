@@ -1034,9 +1034,9 @@ Valoarea `scope-slot` este, de fapt, o expresie JavaScript validă care poate ap
 </child>
 ```
 
-## Dynamic Components
+## Componente Dinamice
 
-You can use the same mount point and dynamically switch between multiple components using the reserved `<component>` element and dynamically bind to its `is` attribute:
+Puteți utiliza același punct de montare și comuta dinamic între mai multe componente folosind elementul `<component>` rezervat și legați dinamic de atributul `is`:
 
 ``` js
 var vm = new Vue({
@@ -1054,15 +1054,15 @@ var vm = new Vue({
 
 ``` html
 <component v-bind:is="currentView">
-  <!-- component changes when vm.currentView changes! -->
+  <!-- modificările componentelor atunci când vm.currentView se modifică!-->
 </component>
 ```
 
-If you prefer, you can also bind directly to component objects:
+Dacă preferați, puteți lega direct și obiecte componente:
 
 ``` js
 var Home = {
-  template: '<p>Welcome home!</p>'
+  template: '<p>Bine ai venit acasă!</p>'
 }
 
 var vm = new Vue({
@@ -1075,17 +1075,17 @@ var vm = new Vue({
 
 ### `keep-alive`
 
-If you want to keep the switched-out components in memory so that you can preserve their state or avoid re-rendering, you can wrap a dynamic component in a `<keep-alive>` element:
+Dacă doriți să păstrați componentele dezactivate în memorie, astfel încât să puteți păstra starea lor sau să evitați redarea, puteți împacheta o componentă dinamică într-un element `<keep-alive>`:
 
 ``` html
 <keep-alive>
   <component :is="currentView">
-    <!-- inactive components will be cached! -->
+    <!-- componentele inactive vor fi stocate în memoria cache! -->
   </component>
 </keep-alive>
 ```
 
-Check out more details on `<keep-alive>` in the [API reference](../api/#keep-alive).
+Verificați mai multe detalii despre `<keep-alive>` în [API reference](../api/#keep-alive).
 
 ## Misc
 
