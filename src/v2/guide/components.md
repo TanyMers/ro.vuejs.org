@@ -903,13 +903,13 @@ Rezultatul obținut va fi:
 </div>
 ```
 
-### Named Slots
+### Sloturile Denumite
 
-`<slot>` elements have a special attribute, `name`, which can be used to further customize how content should be distributed. You can have multiple slots with different names. A named slot will match any element that has a corresponding `slot` attribute in the content fragment.
+Elementele `<slot>` au un atribut special, `name`, care poate fi folosit pentru a personaliza mai mult modul în care trebuie distribuit conținutul. Puteți avea mai multe sloturi cu nume diferite. Un slot denumit se va potrivi cu orice element care are un atribut `slot` corespunzător în fragmentul de conținut.
 
-There can still be one unnamed slot, which is the **default slot** that serves as a catch-all outlet for any unmatched content. If there is no default slot, unmatched content will be discarded.
+Poate fi încă un slot fără nume, care este **slotul implicit** ce servește ca o priză de captură pentru orice conținut de neegalat. Dacă nu există niciun slot implicit, conținutul de neegalat va fi eliminat.
 
-For example, suppose we have an `app-layout` component with the following template:
+De exemplu, să presupunem că avem o componentă `app-layout` cu următorul șablon:
 
 ``` html
 <div class="container">
@@ -925,37 +925,37 @@ For example, suppose we have an `app-layout` component with the following templa
 </div>
 ```
 
-Parent markup:
+Marcaj parental:
 
 ``` html
 <app-layout>
-  <h1 slot="header">Here might be a page title</h1>
+  <h1 slot="header">Aici ar putea fi un titlu de pagină</h1>
 
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
+  <p>Un paragraf pentru conținutul principal.</p>
+  <p>Și înca unul.</p>
 
-  <p slot="footer">Here's some contact info</p>
+  <p slot="footer">Aici plasăm datele de contact</p>
 </app-layout>
 ```
 
-The rendered result will be:
+Rezultatul obținut va fi:
 
 ``` html
 <div class="container">
   <header>
-    <h1>Here might be a page title</h1>
+    <h1>Aici ar putea fi un titlu de pagină</h1>
   </header>
   <main>
-    <p>A paragraph for the main content.</p>
-    <p>And another one.</p>
+    <p>Un paragraf pentru conținutul principal.</p>
+    <p>Și înca unul.</p>
   </main>
   <footer>
-    <p>Here's some contact info</p>
+    <p>Aici plasăm datele de contact</p>
   </footer>
 </div>
 ```
 
-The content distribution API is a very useful mechanism when designing components that are meant to be composed together.
+API-ul de distribuire a conținutului este un mecanism foarte util atunci când se proiectează componentele care trebuie să fie compuse împreună.
 
 ### Scoped Slots
 
