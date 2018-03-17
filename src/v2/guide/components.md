@@ -860,45 +860,45 @@ Vue.component('child-component', {
 
 În mod similar, conținutul distribuit va fi compilat în domeniul de aplicare parental.
 
-### Single Slot
+### Slot Unic
 
-Parent content will be **discarded** unless the child component template contains at least one `<slot>` outlet. When there is only one slot with no attributes, the entire content fragment will be inserted at its position in the DOM, replacing the slot itself.
+Conținutul parental va fi **eliminat** cu excepția cazului în care șablonul componentei copil conține cel puțin o priză `<slot>`. Când există un singur slot fără atribute, întregul fragment de conținut va fi inserat în poziția sa din DOM, înlocuind slotul propriu-zis.
 
-Anything originally inside the `<slot>` tags is considered **fallback content**. Fallback content is compiled in the child scope and will only be displayed if the hosting element is empty and has no content to be inserted.
+Orice element inițial din interiorul tagurilor `<slot>` este considerat **conținut de rezervă**. Conținutul de fond este compilat în domeniul copilului și va fi afișat numai dacă elementul gazdă este gol și nu are conținut inserat.
 
-Suppose we have a component called `my-component` with the following template:
+Să presupunem că avem o componentă denumită `my-component` cu următorul șablon:
 
 ``` html
 <div>
-  <h2>I'm the child title</h2>
+  <h2>Sunt titlul copilului</h2>
   <slot>
-    This will only be displayed if there is no content
-    to be distributed.
+    Aceasta va fi afișată numai dacă nu există conținut
+    pentru a fi distribuite.
   </slot>
 </div>
 ```
 
-And a parent that uses the component:
+Și un părinte care utilizează componenta:
 
 ``` html
 <div>
-  <h1>I'm the parent title</h1>
+  <h1>Sunt titlul părintelui</h1>
   <my-component>
-    <p>This is some original content</p>
-    <p>This is some more original content</p>
+    <p>Un conținut original</p>
+    <p>Un alt conținut original</p>
   </my-component>
 </div>
 ```
 
-The rendered result will be:
+Rezultatul obținut va fi:
 
 ``` html
 <div>
-  <h1>I'm the parent title</h1>
+  <h1>Sunt titlul părintelui</h1>
   <div>
-    <h2>I'm the child title</h2>
-    <p>This is some original content</p>
-    <p>This is some more original content</p>
+    <h2>Sunt titlul copilului</h2>
+    <p>Un conținut original</p>
+    <p>Un alt conținut original</p>
   </div>
 </div>
 ```
