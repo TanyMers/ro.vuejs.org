@@ -821,9 +821,9 @@ Există două lucruri de reținut aici:
 
 Pentru a face compoziția să funcționeze, avem nevoie de o modalitate de a interconecta conținutul părintelui și șablonul propriu al componentei. Acesta este un proces denumit **distribuție de conținut** (sau "transluție" dacă sunteți familiarizat cu Angular). Vue.js implementează un API de distribuire a conținutului, care este modelat după versiunea actuală [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), utilizând elementul `<slot>` special pentru a servi drept puncte de distribuție pentru conținutul original.
 
-### Compilation Scope
+### Domeniul de Compilare
 
-Before we dig into the API, let's first clarify which scope the contents are compiled in. Imagine a template like this:
+Înainte de a intra în API, să clarificăm mai întâi ce domeniu de conținut este compilat. Imaginați-vă un șablon de genul:
 
 ``` html
 <child-component>
@@ -831,24 +831,24 @@ Before we dig into the API, let's first clarify which scope the contents are com
 </child-component>
 ```
 
-Should the `message` be bound to the parent's data or the child data? The answer is the parent. A simple rule of thumb for component scope is:
+Ar trebui ca mesajul `message` să fie legat de datele părintelui sau de datele copilului? Răspunsul este părintele. O regulă simplă de aplicare a componentei este:
 
-> Everything in the parent template is compiled in parent scope; everything in the child template is compiled in child scope.
+> Totul din șablonul părintelui este compilat în domeniul părintelui; totul din șablonul copilului este compilat în domeniul copilului.
 
-A common mistake is trying to bind a directive to a child property/method in the parent template:
+O greșeală comună este încercarea de a lega o directivă de o proprietate/metodă copil în șablonul părinte:
 
 ``` html
-<!-- does NOT work -->
+<!-- NU funcționează -->
 <child-component v-show="someChildProperty"></child-component>
 ```
 
-Assuming `someChildProperty` is a property on the child component, the example above would not work. The parent's template is not aware of the state of a child component.
+Presupunând că `someChildProperty` este o proprietate asupra componentei copil, exemplul de mai sus nu ar funcționa. Șablonul părintelui nu cunoaște starea unei componente copil.
 
-If you need to bind child-scope directives on a component root node, you should do so in the child component's own template:
+Dacă trebuie să legați directivele privind domeniul de aplicare pentru copii pe un nod rădăcină al componentei, ar trebui să faceți acest lucru în propriul șablon al componentei copilului:
 
 ``` js
 Vue.component('child-component', {
-  // this does work, because we are in the right scope
+  // acest lucru funcționează, deoarece suntem în domeniul potrivit
   template: '<div v-show="someChildProperty">Child</div>',
   data: function () {
     return {
@@ -858,7 +858,7 @@ Vue.component('child-component', {
 })
 ```
 
-Similarly, distributed content will be compiled in the parent scope.
+În mod similar, conținutul distribuit va fi compilat în domeniul de aplicare parental.
 
 ### Single Slot
 
