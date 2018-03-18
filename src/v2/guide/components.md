@@ -1269,15 +1269,15 @@ Dacă componenta dvs. nu este transmisă prin intermediul elementelor `slot`, pu
 
 Din nou, aceasta funcționează numai în șabloane de șir, deoarece elementele personalizate cu închidere automată nu sunt valide în HTML, iar parserul nativ al browserului dvs. nu le va înțelege.
 
-### Recursive Components
+### Componente Recursive
 
-Components can recursively invoke themselves in their own template. However, they can only do so with the `name` option:
+Componentele se pot invoca recursiv în propriul șablon. Cu toate acestea, ele pot face acest lucru numai cu opțiunea `name`:
 
 ``` js
 name: 'unique-name-of-my-component'
 ```
 
-When you register a component globally using `Vue.component`, the global ID is automatically set as the component's `name` option.
+Când înregistrați o componentă la nivel global folosind `Vue.component`, ID-ul global este setat automat ca opțiune `name` a componentei.
 
 ``` js
 Vue.component('unique-name-of-my-component', {
@@ -1285,14 +1285,14 @@ Vue.component('unique-name-of-my-component', {
 })
 ```
 
-If you're not careful, recursive components can also lead to infinite loops:
+Dacă nu sunteți atent, componentele recursive pot duce, de asemenea, la cicluri infinite:
 
 ``` js
 name: 'stack-overflow',
 template: '<div><stack-overflow></stack-overflow></div>'
 ```
 
-A component like the above will result in a "max stack size exceeded" error, so make sure recursive invocation is conditional (i.e. uses a `v-if` that will eventually be `false`).
+O componentă ca cea de mai sus va avea ca rezultat o eroare "max size stack exceeded", deci asigurați-vă că invocarea recursivă este condiționată (adică utilizează unui `v-if` care va fi în cele din urmă `false`).
 
 ### Circular References Between Components
 
