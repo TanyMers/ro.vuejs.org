@@ -1135,43 +1135,43 @@ Atunci când `ref` este utilizat împreună cu `v-for`, ref-ul obținut va fi o 
 
 <p class="tip">`$refs` sunt populate numai după ce componenta a fost redată și nu este reactivă. Este vorba numai de un trap de evacuare pentru manipularea directă a copilului - ar trebui să evitați folosirea `$refs` în șabloane sau proprietăți computed.</p>
 
-### Async Components
+### Componentele Async
 
-In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it's actually needed. To make that easier, Vue allows you to define your component as a factory function that asynchronously resolves your component definition. Vue will only trigger the factory function when the component actually needs to be rendered and will cache the result for future re-renders. For example:
+În aplicații mari, este posibil să fie nevoie să împărțim aplicația în bucăți mai mici și să încărcăm o componentă din server când este de fapt nevoie. Pentru a face acest lucru mai ușor, Vue vă permite să definiți componenta dvs. ca o funcție din fabrică care rezolvă asincrone definiția dvs. de componente. Vue va declanșa funcția din fabrică doar atunci când componenta trebuie să fie realmente redată și va memora rezultatul pentru redare. De exemplu:
 
 ``` js
 Vue.component('async-example', function (resolve, reject) {
   setTimeout(function () {
-    // Pass the component definition to the resolve callback
+    // Treceți definiția componentei la rezolvarea callback-urilor
     resolve({
-      template: '<div>I am async!</div>'
+      template: '<div>Eu sunt async!</div>'
     })
   }, 1000)
 })
 ```
 
-The factory function receives a `resolve` callback, which should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed. The `setTimeout` here is for demonstration; how to retrieve the component is up to you. One recommended approach is to use async components together with [Webpack's code-splitting feature](https://webpack.js.org/guides/code-splitting/):
+Funcția fabricii primește un `resolve` a callback-ului, care trebuie apelat când ați preluat definiția componentei de pe server. De asemenea, puteți apela `respingeți(motivul)` pentru a indica că încărcarea a eșuat. Setul `setTimeout` este pentru demonstrație; cum să obțineți componenta depinde de dvs. O abordare recomandată este utilizarea componentelor de asincronizare împreună cu [caracteristica de divizare a codului Webpack](https://webpack.js.org/guides/code-splitting/):
 
 ``` js
 Vue.component('async-webpack-example', function (resolve) {
-  // This special require syntax will instruct Webpack to
-  // automatically split your built code into bundles which
-  // are loaded over Ajax requests.
+  // Această specială necesită o sintaxă care va instrui Webpack 
+  // să împartă automat codul dvs. construit în pachete 
+  // care sunt încărcate peste solicitările Ajax.
   require(['./my-async-component'], resolve)
 })
 ```
 
-You can also return a `Promise` in the factory function, so with Webpack 2 + ES2015 syntax you can do:
+De asemenea, puteți reveni la funcția din fabrica `Promise`, astfel încât puteți utiliza sintaxa Webpack 2 + ES2015:
 
 ``` js
 Vue.component(
   'async-webpack-example',
-  // The `import` function returns a `Promise`.
+  // Funcția `import` returnează `Promise`.
   () => import('./my-async-component')
 )
 ```
 
-When using [local registration](components.html#Local-Registration), you can also directly provide a function that returns a `Promise`:
+Atunci când utilizați [local registration](components.html#Local-Registration), puteți, de asemenea, să furnizați direct o funcție care returnează o promisiune:
 
 ``` js
 new Vue({
@@ -1182,7 +1182,7 @@ new Vue({
 })
 ```
 
-<p class="tip">If you're a <strong>Browserify</strong> user that would like to use async components, its creator has unfortunately [made it clear](https://github.com/substack/node-browserify/issues/58#issuecomment-21978224) that async loading "is not something that Browserify will ever support." Officially, at least. The Browserify community has found [some workarounds](https://github.com/vuejs/vuejs.org/issues/620), which may be helpful for existing and complex applications. For all other scenarios, we recommend using Webpack for built-in, first-class async support.</p>
+<p class="tip">Dacă sunteți un utilizator <strong>Browserify</strong> care ar dori să folosească componente asincronice, creatorul acestuia, din păcate, a făcut-o [clară](https://github.com/substack/node-browserify/issues/58#issuecomment-21978224) că încărcarea async "nu este ceva ce Browserify va suporta vreodată". În mod oficial, cel puțin. Comunitatea Browserify a găsit [unele soluții](https://github.com/vuejs/vuejs.org/issues/620), care ar putea fi utile pentru aplicațiile existente și complexe. Pentru toate celelalte scenarii, vă recomandăm să utilizați Webpack pentru suport async integrat de primă clasă.</p>
 
 ### Advanced Async Components
 
