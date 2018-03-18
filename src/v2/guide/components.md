@@ -1294,9 +1294,9 @@ template: '<div><stack-overflow></stack-overflow></div>'
 
 O componentă ca cea de mai sus va avea ca rezultat o eroare "max size stack exceeded", deci asigurați-vă că invocarea recursivă este condiționată (adică utilizează unui `v-if` care va fi în cele din urmă `false`).
 
-### Circular References Between Components
+### Referințe Circulare între Componente
 
-Let's say you're building a file directory tree, like in Finder or File Explorer. You might have a `tree-folder` component with this template:
+Să presupunem că construiți un arbore director de fișiere, cum ar fi în Finder sau File Explorer. S-ar putea să aveți o componentă `tree-folder` cu acest șablon:
 
 ``` html
 <p>
@@ -1305,7 +1305,7 @@ Let's say you're building a file directory tree, like in Finder or File Explorer
 </p>
 ```
 
-Then a `tree-folder-contents` component with this template:
+Apoi o componentă `tree-folder-contents` cu acest șablon:
 
 ``` html
 <ul>
@@ -1316,17 +1316,17 @@ Then a `tree-folder-contents` component with this template:
 </ul>
 ```
 
-When you look closely, you'll see that these components will actually be each other's descendent _and_ ancestor in the render tree - a paradox! When registering components globally with `Vue.component`, this paradox is resolved for you automatically. If that's you, you can stop reading here.
+Când te vei uita atent, vei vedea că aceste componente vor fi de fapt descendentul și strămoșul celuilalt în arborele de redare - un paradox! Când înregistrați componente globale cu `Vue.component`, acest paradox este rezolvat pentru tine în mod automat. Dacă ești tu, poți să nu mai citești aici.
 
-However, if you're requiring/importing components using a __module system__, e.g. via Webpack or Browserify, you'll get an error:
+Cu toate acestea, dacă solicitați/importați componente utilizând un __sistem de module__, de ex. prin Webpack sau Browserify, veți primi o eroare:
 
 ```
-Failed to mount component: template or render function not defined.
+Nu s-a reușit montarea componentei: șablonul sau funcția de redare nu au fost definite.
 ```
 
-To explain what's happening, let's call our components A and B. The module system sees that it needs A, but first A needs B, but B needs A, but A needs B, etc, etc. It's stuck in a loop, not knowing how to fully resolve either component without first resolving the other. To fix this, we need to give the module system a point at which it can say, "A needs B _eventually_, but there's no need to resolve B first."
+Pentru a explica ce se întâmplă, să numim componentele A și B. Sistemul modulului vede că are nevoie de A, dar mai întâi A are nevoie de B, dar B are nevoie de A, dar A are nevoie de B, etc. Este blocat într-un ciclu, cum de rezolvat pe deplin oricare dintre componente fără a rezolva mai întâi celălalt. Pentru a rezolva acest lucru, trebuie să dăm sistemului modulului un punct la care să poată spune: "Are nevoie de B în mod obișnuit, dar nu este nevoie să rezolvi întâi B".
 
-In our case, let's make that point the `tree-folder` component. We know the child that creates the paradox is the `tree-folder-contents` component, so we'll wait until the `beforeCreate` lifecycle hook to register it:
+În cazul nostru, să facem acest punct componentul `tree-folder`. Știm că copilul care creează paradoxul este componenta `tree-folder-contents` , așa că vom aștepta până când hook-ul de viață `beforeCreate` îl va înregistra:
 
 ``` js
 beforeCreate: function () {
@@ -1334,7 +1334,7 @@ beforeCreate: function () {
 }
 ```
 
-Problem solved!
+Problemă rezolvată!
 
 ### Inline Templates
 
