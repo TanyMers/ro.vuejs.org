@@ -1336,20 +1336,20 @@ beforeCreate: function () {
 
 Problemă rezolvată!
 
-### Inline Templates
+### Șabloane Inline
 
-When the `inline-template` special attribute is present on a child component, the component will use its inner content as its template, rather than treating it as distributed content. This allows more flexible template-authoring.
+Atunci când atributul special `inline-template` este prezent pe o componentă copil, componenta va utiliza conținutul său intern ca șablon, mai degrabă decât să îl trateze ca conținut distribuit. Aceasta permite crearea de șabloane mai flexibile.
 
 ``` html
 <my-component inline-template>
   <div>
-    <p>These are compiled as the component's own template.</p>
-    <p>Not parent's transclusion content.</p>
+    <p>Acestea sunt compilate ca șablon al componentei.</p>
+    <p>Conținutul de transcendență al părintelui nu este.</p>
   </div>
 </my-component>
 ```
 
-However, `inline-template` makes the scope of your templates harder to reason about. As a best practice, prefer defining templates inside the component using the `template` option or in a `template` element in a `.vue` file.
+Cu toate acestea, `inline-template` face din domeniul de aplicare a șabloanelor mai greu de înțeles. Ca o bună practică, preferați să definiți șabloanele în interiorul componentei folosind opțiunea `template` sau într-un element `template` într-un fișier `.vue`.
 
 ### X-Templates
 
