@@ -1115,9 +1115,9 @@ Cu sintaxele dedicate sintagmei pentru `v-bind` și `v-on`, intențiile pot fi t
 </my-component>
 ```
 
-### Child Component Refs
+### Componenta Copil Refs
 
-Despite the existence of props and events, sometimes you might still need to directly access a child component in JavaScript. To achieve this you have to assign a reference ID to the child component using `ref`. For example:
+În ciuda existenței recuzităților și a evenimentelor, uneori este posibil să aveți în continuare acces direct la o componentă copil în JavaScript. Pentru a realiza acest lucru, trebuie să atribuiți un element de referință componentei copil folosind `ref`. De exemplu:
 
 ``` html
 <div id="parent">
@@ -1127,13 +1127,13 @@ Despite the existence of props and events, sometimes you might still need to dir
 
 ``` js
 var parent = new Vue({ el: '#parent' })
-// access child component instance
+// accesați instanța componentei copil
 var child = parent.$refs.profile
 ```
 
-When `ref` is used together with `v-for`, the ref you get will be an array containing the child components mirroring the data source.
+Atunci când `ref` este utilizat împreună cu `v-for`, ref-ul obținut va fi o matrice care conține componentele copil care oglindesc sursa de date.
 
-<p class="tip">`$refs` are only populated after the component has been rendered, and it is not reactive. It is only meant as an escape hatch for direct child manipulation - you should avoid using `$refs` in templates or computed properties.</p>
+<p class="tip">`$refs` sunt populate numai după ce componenta a fost redată și nu este reactivă. Este vorba numai de un trap de evacuare pentru manipularea directă a copilului - ar trebui să evitați folosirea `$refs` în șabloane sau proprietăți computed.</p>
 
 ### Async Components
 
