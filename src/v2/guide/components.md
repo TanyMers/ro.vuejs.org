@@ -1351,13 +1351,13 @@ Atunci când atributul special `inline-template` este prezent pe o componentă c
 
 Cu toate acestea, `inline-template` face din domeniul de aplicare a șabloanelor mai greu de înțeles. Ca o bună practică, preferați să definiți șabloanele în interiorul componentei folosind opțiunea `template` sau într-un element `template` într-un fișier `.vue`.
 
-### X-Templates
+### X-Șabloane
 
-Another way to define templates is inside of a script element with the type `text/x-template`, then referencing the template by an id. For example:
+Un alt mod de a defini șabloanele este în interiorul unui element de tip script `text/x-template`, apoi trimiterea la șablon cu un id. De exemplu:
 
 ``` html
 <script type="text/x-template" id="hello-world-template">
-  <p>Hello hello hello</p>
+  <p>Salut salut salut</p>
 </script>
 ```
 
@@ -1367,18 +1367,18 @@ Vue.component('hello-world', {
 })
 ```
 
-These can be useful for demos with large templates or in extremely small applications, but should otherwise be avoided, because they separate templates from the rest of the component definition.
+Acestea pot fi utile pentru demonstrații cu șabloane mari sau în aplicații extrem de mici, dar ar trebui altfel evitate, deoarece separă șabloanele de restul definiției componentelor.
 
-### Cheap Static Components with `v-once`
+### Componente Statice Ieftine cu `v-once`
 
-Rendering plain HTML elements is very fast in Vue, but sometimes you might have a component that contains **a lot** of static content. In these cases, you can ensure that it's only evaluated once and then cached by adding the `v-once` directive to the root element, like this:
+Realizarea elementelor HTML simple este foarte rapidă în Vue, dar uneori este posibil să aveți o componentă care conține **mult** conținut static. În aceste cazuri, puteți să vă asigurați că este evaluată o singură dată și apoi stocată în memoria cache prin adăugarea direcției `v-once` la elementul rădăcină, astfel:
 
 ``` js
 Vue.component('terms-of-service', {
   template: '\
     <div v-once>\
-      <h1>Terms of Service</h1>\
-      ... a lot of static content ...\
+      <h1>Termenii serviciului</h1>\
+      ...o mulțime de conținut static ...\
     </div>\
   '
 })
