@@ -1087,21 +1087,21 @@ Dacă doriți să păstrați componentele dezactivate în memorie, astfel încâ
 
 Verificați mai multe detalii despre `<keep-alive>` în [API reference](../api/#keep-alive).
 
-## Misc
+## Diverse
 
-### Authoring Reusable Components
+### Autorizarea Componentelor Reutilizabile
 
-When authoring components, it's good to keep in mind whether you intend to reuse it somewhere else later. It's OK for one-off components to be tightly coupled, but reusable components should define a clean public interface and make no assumptions about the context it's used in.
+Când creați componente, este bine să rețineți dacă intenționați să le reutilizați în altă parte mai târziu. Este bine ca componentele unice să fie cuplate strâns, însă componentele reutilizabile ar trebui să definească o interfață publică curată și să nu facă presupuneri cu privire la contextul în care sunt utilizate.
 
-The API for a Vue component comes in three parts - props, events, and slots:
+API-ul pentru o componentă Vue vine în trei părți - parametri de intrare, evenimente și sloturi:
 
-- **Props** allow the external environment to pass data into the component
+- **Parametri de Intrare** permite mediului extern să transmită date în componentă
 
-- **Events** allow the component to trigger side effects in the external environment
+- **Evenimentele** permite componentei să declanșeze efecte secundare în mediul extern
 
-- **Slots** allow the external environment to compose the component with extra content.
+- **Sloturile** permite mediului extern să compună componenta cu conținut suplimentar.
 
-With the dedicated shorthand syntaxes for `v-bind` and `v-on`, the intents can be clearly and succinctly conveyed in the template:
+Cu sintaxele dedicate sintagmei pentru `v-bind` și `v-on`, intențiile pot fi transmise în mod clar și succint în șablon:
 
 ``` html
 <my-component
@@ -1111,7 +1111,7 @@ With the dedicated shorthand syntaxes for `v-bind` and `v-on`, the intents can b
   @event-b="doThat"
 >
   <img slot="icon" src="...">
-  <p slot="main-text">Hello!</p>
+  <p slot="main-text">Salut!</p>
 </my-component>
 ```
 
