@@ -1209,23 +1209,23 @@ const AsyncComp = () => ({
 
 Rețineți că atunci când sunt utilizate ca o componentă de rutare în `vue-router`, aceste proprietăți vor fi ignorate, deoarece componentele asincron sunt rezolvate în avans înainte de navigarea în traseu. De asemenea, trebuie să utilizați `vue-router` 2.4.0+ dacă doriți să utilizați sintaxa de mai sus pentru componentele traseului.
 
-### Component Naming Conventions
+### Componentele Convențiilor Denumite
 
-When registering components (or props), you can use kebab-case, camelCase, or PascalCase.
+Când înregistrați componente (sau parametri de intrare), puteți utiliza kebab-case, camelCase sau PascalCase.
 
 ``` js
-// in a component definition
+// într-o definiție a componentei
 components: {
-  // register using kebab-case
+  // înregistrați utilizând cazul kebab
   'kebab-cased-component': { /* ... */ },
-  // register using camelCase
+  // înregistrați folosind camelCase
   'camelCasedComponent': { /* ... */ },
-  // register using PascalCase
+  // înregistrați utilizând PascalCase
   'PascalCasedComponent': { /* ... */ }
 }
 ```
 
-Within HTML templates though, you have to use the kebab-case equivalents:
+Totuși, în cadrul șabloanelor HTML, trebuie să utilizați echivalentele cu kebab-case:
 
 ``` html
 <!-- always use kebab-case in HTML templates -->
@@ -1234,11 +1234,11 @@ Within HTML templates though, you have to use the kebab-case equivalents:
 <pascal-cased-component></pascal-cased-component>
 ```
 
-When using _string_ templates however, we're not bound by HTML's case-insensitive restrictions. That means even in the template, you can reference your components using:
+Cu toate acestea, atunci când folosim șabloane _string_, nu suntem obligați să restricționăm de la caz la caz. Aceasta înseamnă că, chiar și în șablon, puteți să vă referiți la componente utilizând:
 
 - kebab-case
-- camelCase or kebab-case if the component has been defined using camelCase
-- kebab-case, camelCase or PascalCase if the component has been defined using PascalCase
+- camelCase sau kebab-case dacă componenta a fost definită folosind camelCase
+- kebab-case, camelCase sau PascalCase dacă componenta a fost definită folosind PascalCase
 
 ``` js
 components: {
@@ -1259,15 +1259,15 @@ components: {
 <PascalCasedComponent></PascalCasedComponent>
 ```
 
-This means that the PascalCase is the most universal _declaration convention_ and kebab-case is the most universal _usage convention_.
+Aceasta înseamnă că PascalCase este cea mai universală convenție de declarare și căderea a kebab-case-ului este cea mai universală convenție utilizată.
 
-If your component isn't passed content via `slot` elements, you can even make it self-closing with a `/` after the name:
+Dacă componenta dvs. nu este transmisă prin intermediul elementelor `slot`, puteți chiar să o închideți automat cu un `/` după nume:
 
 ``` html
 <my-component/>
 ```
 
-Again, this _only_ works within string templates, as self-closing custom elements are not valid HTML and your browser's native parser will not understand them.
+Din nou, aceasta funcționează numai în șabloane de șir, deoarece elementele personalizate cu închidere automată nu sunt valide în HTML, iar parserul nativ al browserului dvs. nu le va înțelege.
 
 ### Recursive Components
 
