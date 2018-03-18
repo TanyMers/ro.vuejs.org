@@ -1184,29 +1184,30 @@ new Vue({
 
 <p class="tip">Dacă sunteți un utilizator <strong>Browserify</strong> care ar dori să folosească componente asincronice, creatorul acestuia, din păcate, a făcut-o [clară](https://github.com/substack/node-browserify/issues/58#issuecomment-21978224) că încărcarea async "nu este ceva ce Browserify va suporta vreodată". În mod oficial, cel puțin. Comunitatea Browserify a găsit [unele soluții](https://github.com/vuejs/vuejs.org/issues/620), care ar putea fi utile pentru aplicațiile existente și complexe. Pentru toate celelalte scenarii, vă recomandăm să utilizați Webpack pentru suport async integrat de primă clasă.</p>
 
-### Advanced Async Components
+### Async Componente Avansate
 
-> New in 2.3.0+
+> Nou în 2.3.0+
 
-Starting in 2.3.0+ the async component factory can also return an object of the following format:
+Începând cu 2.3.0+, fabrica de componente asincronă poate returna, de asemenea, un obiect cu următorul format:
 
 ``` js
 const AsyncComp = () => ({
-  // The component to load. Should be a Promise
+  // Componenta de încărcat. Ar trebui să fie Promise
+  The component to load. Should be a Promise
   component: import('./MyComp.vue'),
-  // A component to use while the async component is loading
+  // O componentă de utilizat în timp ce componenta asincronă se încarcă
   loading: LoadingComp,
-  // A component to use if the load fails
+  // O componentă de utilizat în cazul în care încărcarea eșuează
   error: ErrorComp,
-  // Delay before showing the loading component. Default: 200ms.
+  // Întârziere înainte de a afișa componenta de încărcare. Implicit: 200ms.
   delay: 200,
-  // The error component will be displayed if a timeout is
-  // provided and exceeded. Default: Infinity.
+  // Componenta de eroare va fi afișată dacă are un timeout
+  // furnizat și depășit. Implicit: Infinit.
   timeout: 3000
 })
 ```
 
-Note that when used as a route component in `vue-router`, these properties will be ignored because async components are resolved upfront before the route navigation happens. You also need to use `vue-router` 2.4.0+ if you wish to use the above syntax for route components.
+Rețineți că atunci când sunt utilizate ca o componentă de rutare în `vue-router`, aceste proprietăți vor fi ignorate, deoarece componentele asincron sunt rezolvate în avans înainte de navigarea în traseu. De asemenea, trebuie să utilizați `vue-router` 2.4.0+ dacă doriți să utilizați sintaxa de mai sus pentru componentele traseului.
 
 ### Component Naming Conventions
 
