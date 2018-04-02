@@ -8,9 +8,9 @@ order: 401
 
 În timpul dezvoltării, Vue oferă multe avertismente pentru a vă ajuta cu erorile și capcanele comune. Cu toate acestea, aceste șiruri de avertizare devin inutile în producție și umflă dimensiunea greutăților încărcate de aplicația dvs. În plus, unele dintre aceste verificări de avertizare au costuri mici de executare care pot fi evitate în modul de producție.
 
-### Without Build Tools
+### Fără Instrumente de Construcție
 
-If you are using the full build, i.e. directly including Vue via a script tag without a build tool, make sure to use the minified version (`vue.min.js`) for production. Both versions can be found in the [Installation guide](installation.html#Direct-lt-script-gt-Include).
+Dacă utilizați construirea completă, adică direct incluzând Vue printr-o etichetă de script fără un instrument de construire, asigurați-vă că utilizați versiunea minificată (`vue.min.js`) pentru producție. Ambele versiuni pot fi găsite în [Installation guide](installation.html#Direct-lt-script-gt-Include).
 
 ### With Build Tools
 
