@@ -79,13 +79,14 @@ rollup({
 }).then(...)
 ```
 
-## Pre-Compiling Templates
+## Șabloane de Precompilare
 
-When using in-DOM templates or in-JavaScript template strings, the template-to-render-function compilation is performed on the fly. This is usually fast enough in most cases, but is best avoided if your application is performance-sensitive.
+Atunci când se utilizează șabloane in-DOM sau șiruri de șabloane în JavaScript, compilația funcțiilor șablon-redare se efectuează în zbor. De obicei, acest lucru este destul de rapid în cele mai multe cazuri, dar este cel mai bine evitat dacă aplicația dvs. este sensibilă la performanță.
 
-The easiest way to pre-compile templates is using [Single-File Components](single-file-components.html) - the associated build setups automatically performs pre-compilation for you, so the built code contains the already compiled render functions instead of raw template strings.
+Cea mai simplă metodă de precompilare a șabloanelor este utilizarea [Componentelor Single-File](single-file-components.html) - setările asociate de construire realizează automat o precompilare pentru dvs., astfel încât codul construit conține funcțiile de redare deja compilate, în loc de șabloane de șiruri neprelucrate.
 
-If you are using Webpack, and prefer separating JavaScript and template files, you can use [vue-template-loader](https://github.com/ktsn/vue-template-loader), which also transforms the template files into JavaScript render functions during the build step.
+Dacă utilizați Webpack și preferați să separați JavaScript și fișierele de șablon, puteți utiliza [vue-template-loader](https://github.com/ktsn/vue-template-loader), care transformă, de asemenea, fișierele șablon în funcții de randare JavaScript în timpul etapei de construire.
+
 
 ## Extracting Component CSS
 
