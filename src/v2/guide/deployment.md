@@ -98,6 +98,6 @@ Consultați documentațiile respectivului instrument de construcție pentru a ve
 - [Browserify + vueify](https://github.com/vuejs/vueify#css-extraction)
 - [Rollup + rollup-plugin-vue](https://vuejs.github.io/rollup-plugin-vue/#/en/2.3/?id=custom-handler)
 
-## Tracking Runtime Errors
+## Urmărirea Erorilor de Execuție
 
-If a runtime error occurs during a component's render, it will be passed to the global `Vue.config.errorHandler` config function if it has been set. It might be a good idea to leverage this hook together with an error-tracking service like [Sentry](https://sentry.io), which provides [an official integration](https://sentry.io/for/vue/) for Vue.
+Dacă se produce o eroare de execuție în timpul redării unei componente, aceasta va fi trecută la funcția de configurare globală `Vue.config.errorHandler` dacă aceasta a fost setată. Ar putea fi o idee bună să folosiți acest cârlig împreună cu un serviciu de urmărire a erorilor, cum ar fi [Sentry](https://sentry.io), care oferă [o integrare oficială](https://sentry.io/for/vue/) pentru Vue.
