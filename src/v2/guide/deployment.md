@@ -88,13 +88,13 @@ Cea mai simplă metodă de precompilare a șabloanelor este utilizarea [Componen
 Dacă utilizați Webpack și preferați să separați JavaScript și fișierele de șablon, puteți utiliza [vue-template-loader](https://github.com/ktsn/vue-template-loader), care transformă, de asemenea, fișierele șablon în funcții de randare JavaScript în timpul etapei de construire.
 
 
-## Extracting Component CSS
+## Extragerea Сomponentei CSS
 
-When using Single-File Components, the CSS inside components are injected dynamically as `<style>` tags via JavaScript. This has a small runtime cost, and if you are using server-side rendering it will cause a "flash of unstyled content". Extracting the CSS across all components into the same file will avoid these issues, and also result in better CSS minification and caching.
+Când se utilizează Componentele cu un singur fișier, componentele CSS din interiorul acestora sunt injectate dinamic ca etichete `<style>` prin JavaScript. Acest lucru are un cost redus de execuție și, dacă utilizați randarea de pe server, acesta va provoca o "blițare a conținutului neuniform". Extragerea CSS în toate componentele în același fișier va evita aceste probleme și va duce, de asemenea, la îmbunătățirea miniaturilor și cache-urilor CSS.
 
-Refer to the respective build tool documentations to see how it's done:
+Consultați documentațiile respectivului instrument de construcție pentru a vedea cum se face:
 
-- [Webpack + vue-loader](https://vue-loader.vuejs.org/en/configurations/extract-css.html) (the `vue-cli` webpack template has this pre-configured)
+- [Webpack + vue-loader](https://vue-loader.vuejs.org/en/configurations/extract-css.html) (șablonul webpack `vue-cli` are acestă preconfigurare)
 - [Browserify + vueify](https://github.com/vuejs/vueify#css-extraction)
 - [Rollup + rollup-plugin-vue](https://vuejs.github.io/rollup-plugin-vue/#/en/2.3/?id=custom-handler)
 
