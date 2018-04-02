@@ -18,7 +18,7 @@ Când se utilizează un instrument de construcție cum ar fi Webpack sau Browser
 
 #### Webpack
 
-Use Webpack's [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) to indicate a production environment, so that warning blocks can be automatically dropped by UglifyJS during minification. Example config:
+Utilizați [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) de la Webpack pentru a indica un mediu de producție, astfel încât blocurile de avertizare să poată fi abandonate automat de UglifyJS în timpul procesului de minificare. Exemplu config:
 
 ``` js
 var webpack = require('webpack')
@@ -38,9 +38,9 @@ module.exports = {
 
 #### Browserify
 
-- Run your bundling command with the actual `NODE_ENV` environment variable set to `"production"`. This tells `vueify` to avoid including hot-reload and development related code.
+- Rulați comanda de îmbinare cu variabila actuală de mediu "NODE_ENV" setată la `"producție"`. Acest lucru spune `vueify` pentru a evita includerea reîncărcării-hot și a codului de dezvoltare.
 
-- Apply a global [envify](https://github.com/hughsk/envify) transform to your bundle. This allows the minifier to strip out all the warnings in Vue's source code wrapped in env variable conditional blocks. For example:
+- Aplicați o transformare globală [envify](https://github.com/hughsk/envify) în pachetul dvs. Aceasta permite minifierului să elimine toate avertismentele din codul sursă al Vue înfășurat în blocuri condiționale variabile env. De exemplu:
 
   ``` bash
   NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
@@ -49,13 +49,13 @@ module.exports = {
 - Or, using [envify](https://github.com/hughsk/envify) with Gulp:
 
   ``` js
-  // Use the envify custom module to specify environment variables
+  // Utilizați modulul personalizat pentru a specifica variabilele de mediu
   var envify = require('envify/custom')
 
   browserify(browserifyOptions)
     .transform(vueify),
     .transform(
-      // Required in order to process node_modules files
+      // Obligatoriu pentru procesarea fișierelor node_modules
       { global: true },
       envify({ NODE_ENV: 'production' })
     )
@@ -64,7 +64,7 @@ module.exports = {
 
 #### Rollup
 
-Use [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
+Utilizează [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
 
 ``` js
 const replace = require('rollup-plugin-replace')
