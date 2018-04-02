@@ -1,5 +1,5 @@
 ---
-title: Single File Components
+title: Componentele unui Singur Fișier
 type: guide
 order: 402
 ---
