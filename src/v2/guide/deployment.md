@@ -4,9 +4,9 @@ type: guide
 order: 401
 ---
 
-## Turn on Production Mode
+## Activați Modul de Producție
 
-During development, Vue provides a lot of warnings to help you with common errors and pitfalls. However, these warning strings become useless in production and bloat your app's payload size. In addition, some of these warning checks have small runtime costs that can be avoided in production mode.
+În timpul dezvoltării, Vue oferă multe avertismente pentru a vă ajuta cu erorile și capcanele comune. Cu toate acestea, aceste șiruri de avertizare devin inutile în producție și umflă dimensiunea greutăților încărcate de aplicația dvs. În plus, unele dintre aceste verificări de avertizare au costuri mici de executare care pot fi evitate în modul de producție.
 
 ### Without Build Tools
 
