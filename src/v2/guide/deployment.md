@@ -12,9 +12,9 @@ order: 401
 
 Dacă utilizați construirea completă, adică direct incluzând Vue printr-o etichetă de script fără un instrument de construire, asigurați-vă că utilizați versiunea minificată (`vue.min.js`) pentru producție. Ambele versiuni pot fi găsite în [Installation guide](installation.html#Direct-lt-script-gt-Include).
 
-### With Build Tools
+### cu Instrumente de Construcție
 
-When using a build tool like Webpack or Browserify, the production mode will be determined by `process.env.NODE_ENV` inside Vue's source code, and it will be in development mode by default. Both build tools provide ways to overwrite this variable to enable Vue's production mode, and warnings will be stripped by minifiers during the build. All `vue-cli` templates have these pre-configured for you, but it would be beneficial to know how it is done:
+Când se utilizează un instrument de construcție cum ar fi Webpack sau Browserify, modul de producție va fi determinat de `process.env.NODE_ENV` în codul sursă Vue și va fi în mod implicit în modul de dezvoltare. Ambele instrumente de construire oferă modalități de suprascriere a acestei variabile pentru a permite modul de producție al Vue, iar avertismentele vor fi eliminate de minifiere în timpul construcției. Toate șabloanele `vue-cli` au aceste preconfigurate pentru dvs., dar ar fi benefic să știți cum se face:
 
 #### Webpack
 
