@@ -33,17 +33,17 @@ Așa cum am promis, putem folosi și preprocesoare cum ar fi Pug, Babel(cu modul
 
 Aceste limbi specifice sunt doar exemple. Ai putea folosi cu ușurință și Bublé, TypeScript, SCSS, PostCSS - sau orice alte preprocesoare care te ajută să fii productiv. Dacă folosiți Webpack cu `vue-loader`, acesta are și suport de primă clasă pentru modulele CSS.
 
+### Cum rămâne cu separarea responsabilităților?
 
-### What About Separation of Concerns?
+Un lucru important este de remarcat faptul că **separarea responsabilităților nu este egală cu separarea tipurilor de fișiere.** În dezvoltarea UI modernă, am constatat că, în loc să împartă codul în trei straturi uriașe care se interpun între ele, mai mult sens pentru a le împărți în componente cu cuplaj liber și pentru a le compune. În interiorul unei componente, șablonul, logica și stilurile sale sunt în mod inerent cuplate, iar colocarea acestora face de fapt componenta mai coerentă și mai ușor de întreținut.
 
-One important thing to note is that **separation of concerns is not equal to separation of file types.** In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweaves with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic and styles are inherently coupled, and collocating them actually makes the component more cohesive and maintainable.
+Chiar dacă nu vă place ideea Componentelor cu un singur fișier, puteți totuși să utilizați funcțiile de reîncărcare-hot și de precompilare prin separarea JavaScript și CSS în fișiere separate:
 
-Even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files:
 
 ``` html
 <!-- my-component.vue -->
 <template>
-  <div>This will be pre-compiled</div>
+  <div>Acest lucru va fi precompilat</div>
 </template>
 <script src="./my-component.js"></script>
 <style src="./my-component.css"></style>
