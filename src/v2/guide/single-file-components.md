@@ -49,11 +49,11 @@ Chiar dacă nu vă place ideea Componentelor cu un singur fișier, puteți totu�
 <style src="./my-component.css"></style>
 ```
 
-## Getting Started
+## Noțiuni de Bază
 
-### Example Sandbox
+### Exemplu Sandbox
 
-If you want to dive right in and start playing with single-file components, check out [this simple todo app](https://codesandbox.io/s/o29j95wx9) on CodeSandbox.
+Dacă doriți să vă aruncați înainte și să începeți să jucați cu componente cu un singur fișier, verificați [această aplicație simplă 0todo](https://codesandbox.io/s/o29j95wx9) pe CodeSandbox.
 
 ### For Users New to Module Build Systems in JavaScript
 
