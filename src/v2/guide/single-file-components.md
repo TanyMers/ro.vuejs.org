@@ -4,34 +4,35 @@ type: guide
 order: 402
 ---
 
-## Introduction
+## Introducere
 
-In many Vue projects, global components will be defined using `Vue.component`, followed by `new Vue({ el: '#container' })` to target a container element in the body of every page.
+În multe proiecte Vue, componentele globale vor fi definite folosind `Vue.component`, urmat de `new Vue({ el: '#container' })` pentru a viza un element container în corpul fiecărei pagini.
 
-This can work very well for small to medium-sized projects, where JavaScript is only used to enhance certain views. In more complex projects however, or when your frontend is entirely driven by JavaScript, these disadvantages become apparent:
+Acest lucru poate funcționa foarte bine pentru proiectele de dimensiuni mici și mijlocii, în care JavaScript este utilizat numai pentru a îmbunătăți anumite viziuni. Cu toate acestea, în proiecte mai complexe sau când interfața dvs. este condusă în întregime de JavaScript, aceste dezavantaje devin vizibile:
 
-- **Global definitions** force unique names for every component
-- **String templates** lack syntax highlighting and require ugly slashes for multiline HTML
-- **No CSS support** means that while HTML and JavaScript are modularized into components, CSS is conspicuously left out
-- **No build step** restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel
+- **Definiții globale** forțați nume unice pentru fiecare componentă
+- **Șabloanele de șir** nu au o evidențiere a sintaxei și necesită tăieturi(slashes) urâte pentru HTML multiline
+- **Nu are suport CSS** înseamnă că, în timp ce HTML și JavaScript sunt modulate în componente, CSS este evitat în mod vizibil
+- **Nici un pas de construcție** nu ne limitează la HTML și ES5 JavaScript, mai degrabă decât preprocesoare ca Pug (fostul Jade) și Babel
 
-All of these are solved by **single-file components** with a `.vue` extension, made possible with build tools such as Webpack or Browserify.
+Toate acestea sunt rezolvate de către **componentele cu un singur fișier** cu o extensie `.vue`, făcută posibilă cu instrumente de construire cum ar fi Webpack sau Browserify.
 
-Here's an example of a file we'll call `Hello.vue`:
+Iată un exemplu de fișier pe care îl vom numi `Hello.vue`:
 
 <img src="/images/vue-component.png" style="display: block; margin: 30px auto;">
 
-Now we get:
+Acum primim:
 
-- [Complete syntax highlighting](https://github.com/vuejs/awesome-vue#source-code-editing)
-- [CommonJS modules](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
-- [Component-scoped CSS](https://vue-loader.vuejs.org/en/features/scoped-css.html)
+- [Sintaxă completă evidențiată](https://github.com/vuejs/awesome-vue#source-code-editing)
+- [Modulele CommonJS](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
+- [Componenta-scoped CSS](https://vue-loader.vuejs.org/en/features/scoped-css.html)
 
-As promised, we can also use preprocessors such as Pug, Babel (with ES2015 modules), and Stylus for cleaner and more feature-rich components.
+Așa cum am promis, putem folosi și preprocesoare cum ar fi Pug, Babel(cu modulele ES2015) și Stylus pentru componente mai curate și mai bogate în caracteristici.
 
 <img src="/images/vue-component-with-preprocessors.png" style="display: block; margin: 30px auto;">
 
-These specific languages are only examples. You could as easily use Bublé, TypeScript, SCSS, PostCSS - or whatever other preprocessors that help you be productive. If using Webpack with `vue-loader`, it also has first-class support for CSS Modules.
+Aceste limbi specifice sunt doar exemple. Ai putea folosi cu ușurință și Bublé, TypeScript, SCSS, PostCSS - sau orice alte preprocesoare care te ajută să fii productiv. Dacă folosiți Webpack cu `vue-loader`, acesta are și suport de primă clasă pentru modulele CSS.
+
 
 ### What About Separation of Concerns?
 
