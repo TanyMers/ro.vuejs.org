@@ -55,17 +55,17 @@ Chiar dacă nu vă place ideea Componentelor cu un singur fișier, puteți totu�
 
 Dacă doriți să vă aruncați înainte și să începeți să jucați cu componente cu un singur fișier, verificați [această aplicație simplă 0todo](https://codesandbox.io/s/o29j95wx9) pe CodeSandbox.
 
-### For Users New to Module Build Systems in JavaScript
+### Pentru Utilizatorii Noi în Modulele Sistemelor în Construirea JavaScript
 
-With `.vue` components, we're entering the realm of advanced JavaScript applications. That means learning to use a few additional tools if you haven't already:
+Cu componentele `.vue`, intrăm în domeniul aplicațiilor JavaScript avansate. Asta înseamnă că trebuie să învățați să folosiți câteva instrumente suplimentare, dacă nu ați făcut-o deja:
 
-- **Node Package Manager (NPM)**: Read the [Getting Started guide](https://docs.npmjs.com/getting-started/what-is-npm) through section _10: Uninstalling global packages_.
+- **Node Package Manager (NPM)**: Citiți ghidul [Getting Started](https://docs.npmjs.com/getting-started/what-is-npm) prin secțiunea _10: Dezinstalarea pachetelor globale_.
 
-- **Modern JavaScript with ES2015/16**: Read through Babel's [Learn ES2015 guide](https://babeljs.io/docs/learn-es2015/). You don't have to memorize every feature right now, but keep this page as a reference you can come back to.
+- **JavaScript-ul modern cu ES2015/16**: Citiți prin [Ghidul de instruire ES2015](https://babeljs.io/docs/learn-es2015/) al lui Babel. Nu trebuie să memorați fiecare caracteristică acum, dar păstrați această pagină ca referință la care vă puteți întoarce.
 
-After you've taken a day to dive into these resources, we recommend checking out the [webpack](https://vuejs-templates.github.io/webpack) template. Follow the instructions and you should have a Vue project with `.vue` components, ES2015, and hot-reloading in no time!
+După ce ați luat o zi să vă aruncați cu capul în aceste resurse, vă recomandăm să verificați șablonul [webpack](https://vuejs-templates.github.io/webpack). Urmați instrucțiunile și ar trebui să aveți un proiect Vue cu componente `.vue`, ES2015 și reîncărcare în cel mai scurt timp!
 
-To learn more about Webpack itself, check out [their official docs](https://webpack.js.org/configuration/) and [Webpack Academy](https://webpack.academy/p/the-core-concepts). In Webpack, each file can be transformed by a "loader" before being included in the bundle, and Vue offers the [vue-loader](https://vue-loader.vuejs.org) plugin to translate single-file (`.vue`) components.
+Pentru a afla mai multe despre Webpack-ul în sine, consultați [documentele oficiale](https://webpack.js.org/configuration/) și [Webpack Academy](https://webpack.academy/p/the-core-concepts). În Webpack, fiecare fișier poate fi transformat de un "încărcător" înainte de a fi inclus în pachet, iar Vue oferă pluginul [vue-loader](https://vue-loader.vuejs.org) pentru a traduce un singur fișier (`.vue`).
 
 ### For Advanced Users
 
