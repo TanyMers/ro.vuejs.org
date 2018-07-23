@@ -4,9 +4,9 @@ type: guide
 order: 403
 ---
 
-## Setup and Tooling
+## Configurarea și Instrumentarea
 
-Anything compatible with a module-based build system will work, but if you're looking for a specific recommendation try the [Karma](http://karma-runner.github.io) test runner. It has a lot of community plugins, including support for [Webpack](https://github.com/webpack/karma-webpack) and [Browserify](https://github.com/Nikku/karma-browserify). For detailed setup please refer to each project's respective documentation. These example Karma configurations for [Webpack](https://github.com/vuejs-templates/webpack/blob/master/template/test/unit/karma.conf.js) and [Browserify](https://github.com/vuejs-templates/browserify/blob/master/template/karma.conf.js) can help you get started.
+Orice compatibil cu un sistem bazat pe module va funcționa, dar dacă căutați o recomandare specifică, încercați ruterul de testare [Karma](http://karma-runner.github.io). Are o mulțime de pluginuri comunitare, inclusiv suport pentru [Webpack](https://github.com/webpack/karma-webpack) și [Browserify](https://github.com/Nikku/karma-browserify). Pentru setări detaliate, consultați documentația fiecărui proiect. Aceste exemple de configurații Karma pentru [Webpack](https://github.com/vuejs-templates/webpack/blob/master/template/test/unit/karma.conf.js) și [Browserify](https://github.com/vuejs-templates/browserify/blob/master/template/karma.conf.js) vă poate ajuta să începeți.
 
 ## Simple Assertions
 
