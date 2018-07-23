@@ -67,6 +67,6 @@ După ce ați luat o zi să vă aruncați cu capul în aceste resurse, vă recom
 
 Pentru a afla mai multe despre Webpack-ul în sine, consultați [documentele oficiale](https://webpack.js.org/configuration/) și [Webpack Academy](https://webpack.academy/p/the-core-concepts). În Webpack, fiecare fișier poate fi transformat de un "încărcător" înainte de a fi inclus în pachet, iar Vue oferă pluginul [vue-loader](https://vue-loader.vuejs.org) pentru a traduce un singur fișier (`.vue`).
 
-### For Advanced Users
+### Pentru Utilizatorii Avansați
 
-Whether you prefer Webpack or Browserify, we have documented templates for both simple and more complex projects. We recommend browsing [github.com/vuejs-templates](https://github.com/vuejs-templates), picking a template that's right for you, then following the instructions in the README to generate a new project with [vue-cli](https://github.com/vuejs/vue-cli).
+Indiferent dacă preferați Webpack sau Browserify, am documentat șabloane pentru proiecte simple și mai complexe. Vă recomandăm să răsfoiți [github.com/vuejs-templates](https://github.com/vuejs-templates), alegeți un șablon potrivit pentru dvs., apoi urmați instrucțiunile din README pentru a genera un nou proiect cu [vue- cli](https://github.com/vuejs/vue-cli).
